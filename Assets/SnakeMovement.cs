@@ -26,11 +26,20 @@ public class SnakeMovement : MonoBehaviour
     public Sprite bodySprite;
     public bool ate = false;
     public Vector3 direction;
+
+    public float stunTimer = 0.0f;
+    public float stunTime = 3.0f;
+
+    public GameObject miniGame;
     // Update is called once per frame
     void Update()
     {
         getValidKey();
-        
+        if (stunTimer > 0.0f)
+        {
+            stunTimer -= Time.deltaTime;
+            return;
+        }
         if (timer < 0.5)
         {
             timer+=Time.deltaTime;
@@ -39,6 +48,9 @@ public class SnakeMovement : MonoBehaviour
         {
             timer = 0;
         }
+        
+
+
         Vector3 newDirection = Vector3.zero;
         if (lastKey == KeyCode.W ){
             transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -78,7 +90,36 @@ public class SnakeMovement : MonoBehaviour
         transform.position += transform.rotation*Vector3.up;
         return;
         }
-        //floor the position
+        //check if head is gonna hit a body part or the wall
+        Vector3 nextPos = transform.position + transform.rotation*Vector3.up;
+        if (nextPos.x >= 5.5 || nextPos.x <= -5.5 || nextPos.y >= 5.5 || nextPos.y <= -5.5)
+        {
+            //hit the wall
+            Debug.Log("Hit the wall");
+            stunTimer = stunTime;
+            GameObject obj = Instantiate(miniGame, new Vector3(1,1,0)+ transform.position, Quaternion.identity);
+            obj.SetActive(true);
+            Destroy(obj, stunTime);
+            return;
+        }
+        else
+        {
+            for (int i = 0; i < bodyParts.Count; i++)
+            {
+                if (nextPos == bodyParts[i].transform.position)
+                {
+                    //hit a body part
+                    Debug.Log("Hit a body part");
+                    stunTimer = stunTime;
+                    GameObject obj = Instantiate(miniGame, new Vector3(1,1,0)+ transform.position, Quaternion.identity);
+                    obj.SetActive(true);
+                    Destroy(obj, stunTime);
+                    return;
+                }
+            }
+        }
+
+
         transform.position += transform.rotation*Vector3.up;
         int tailIndex = bodyParts.Count-1;
         float[] prevRotations = new float[bodyParts.Count+1];
@@ -92,7 +133,6 @@ public class SnakeMovement : MonoBehaviour
 
             //save the rotation for the next body part, and update this body part's rotation
             bodyParts[i].transform.rotation = Quaternion.Euler(0, 0, prevRotations[i]);
-            Debug.Log("prevRotation: " + prevRotations[i] + " new Rotation: " + newRot);
             prevRotations[i+1] = newRot;
 
         } 
@@ -121,8 +161,6 @@ public class SnakeMovement : MonoBehaviour
             // sprite 1 is right up
             // sprite 2 is up left
             // sprite 3 is up right
-        Debug.Log("oldDirection: " + oldDirection + " newDirection: " + newDirection);
-        Debug.Log((oldDirection == Vector3.up)+" "+(newDirection == Vector3.left));
         if (oldDirection == Vector3.up && newDirection == Vector3.left)
         {
             return 1;

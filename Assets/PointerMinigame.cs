@@ -1,0 +1,82 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+public class PointerMinigame : MonoBehaviour
+{
+    public GameObject pointer; // pointer goes back and forth horizontally
+    public GameObject area; // 
+
+    public GameObject target; // target to hit
+
+    public GameObject winAnimation; // animation to play when player wins
+    public float pointerSpeed = 1.0f;
+
+
+    public float offset = 0.5f;
+    public float targetSize = 0.3f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //targetSize = target.transform.localScale.x/2;
+        Debug.Log(targetSize);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //move pointer back and forth
+        
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            
+            //check if pointer is within target
+            if (Mathf.Abs(pointer.transform.localPosition.x - target.transform.localPosition.x) < targetSize)
+            {
+                //pointer is within target
+                Debug.Log("You win!");
+                winAnimation.GetComponent<TextMeshPro>().SetText("Good!");
+                winAnimation.GetComponent<TextMeshPro>().color = Color.green;
+                try {
+                    GameObject.Find("Snake").GetComponent<SnakeMovement>().stunTimer = 0.0f;
+                }
+                catch
+                {
+                    Debug.Log("Snake not found");
+                }
+            }
+            else
+            {
+                //pointer is not within target
+                Debug.Log("You lose!");
+                //change win animation text to Nice Try and change color to red
+                winAnimation.GetComponent<TextMeshPro>().SetText("Nice Try!");
+                winAnimation.GetComponent<TextMeshPro>().color = Color.red;
+                try {
+                    GameObject.Find("Snake").GetComponent<SnakeMovement>().stunTimer += 3.0f;
+                }
+                catch
+                {
+                    Debug.Log("Snake not found");
+                }
+            }
+           target.GetComponent<SpriteRenderer>().enabled = false;
+            pointer.GetComponent<SpriteRenderer>().enabled = false;
+            area.GetComponent<Animator>().enabled = true;
+            winAnimation.SetActive(true);
+        }
+
+    }
+
+    void FixedUpdate() {
+        pointer.transform.localPosition = new Vector3(pointer.transform.localPosition.x + pointerSpeed * Time.deltaTime, pointer.transform.localPosition.y, pointer.transform.localPosition.z);
+        Debug.Log(pointer.transform.localPosition.x);
+        if (pointerSpeed > 0 && pointer.transform.localPosition.x > 0.5f - offset)
+            pointerSpeed = -pointerSpeed;
+        else if (pointerSpeed < 0 && pointer.transform.localPosition.x < -0.5f+offset)
+            pointerSpeed = -pointerSpeed;
+    }
+
+}
