@@ -52,7 +52,7 @@ public class PointerMinigame : MonoBehaviour
                 //pointer is not within target
                 Debug.Log("You lose!");
                 //change win animation text to Nice Try and change color to red
-                winAnimation.GetComponent<TextMeshPro>().SetText("Nice Try!");
+                winAnimation.GetComponent<TextMeshPro>().SetText("Oops!");
                 winAnimation.GetComponent<TextMeshPro>().color = Color.red;
                 try {
                     GameObject.Find("Snake").GetComponent<SnakeMovement>().stunTimer += 3.0f;

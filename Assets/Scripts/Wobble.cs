@@ -12,7 +12,8 @@ public class Wobble : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, destroyDelay);
+        if (destroyDelay > 0.0f)
+            Destroy(gameObject, destroyDelay);
     }
 
     // Update is called once per frame

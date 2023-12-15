@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,7 +6,7 @@ using UnityEngine;
 
 public class SnakeMovement : MonoBehaviour
 {
-
+    private 
     void Start() 
     {
         //set all rotations to 0
@@ -24,7 +25,7 @@ public class SnakeMovement : MonoBehaviour
 
     public Sprite[] turnSprite;
     public Sprite bodySprite;
-    public bool ate = false;
+    public int ate = 0;
     public Vector3 direction;
 
     public float stunTimer = 0.0f;
@@ -80,15 +81,17 @@ public class SnakeMovement : MonoBehaviour
             //transform.position.x += 0.547f;
         }
 
-        if (ate) {
-
+        if (ate >= 3) {
+            //spawn it closer to middle
             GameObject g = (GameObject)Instantiate(bodyParts[0], transform.position, transform.rotation);
             g.GetComponent<SpriteRenderer>().sprite = bodySprite;
             bodyParts.Insert(0, g);
-            ate = false;
+            
+            ate -= 3;
+            GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(Mathf.Min(ate,3));
             //floor the position
-        transform.position += transform.rotation*Vector3.up;
-        return;
+            transform.position += transform.rotation*Vector3.up;
+            return;
         }
         //check if head is gonna hit a body part or the wall
         Vector3 nextPos = transform.position + transform.rotation*Vector3.up;
@@ -96,10 +99,7 @@ public class SnakeMovement : MonoBehaviour
         {
             //hit the wall
             Debug.Log("Hit the wall");
-            stunTimer = stunTime;
-            GameObject obj = Instantiate(miniGame, new Vector3(1,1,0)+ transform.position, Quaternion.identity);
-            obj.SetActive(true);
-            Destroy(obj, stunTime);
+            startMiniGame();
             return;
         }
         else
@@ -110,10 +110,7 @@ public class SnakeMovement : MonoBehaviour
                 {
                     //hit a body part
                     Debug.Log("Hit a body part");
-                    stunTimer = stunTime;
-                    GameObject obj = Instantiate(miniGame, new Vector3(1,1,0)+ transform.position, Quaternion.identity);
-                    obj.SetActive(true);
-                    Destroy(obj, stunTime);
+                    startMiniGame();
                     return;
                 }
             }
@@ -121,6 +118,7 @@ public class SnakeMovement : MonoBehaviour
 
 
         transform.position += transform.rotation*Vector3.up;
+        tryEat();
         int tailIndex = bodyParts.Count-1;
         float[] prevRotations = new float[bodyParts.Count+1];
         prevRotations[0] = transform.rotation.eulerAngles.z;
@@ -156,7 +154,22 @@ public class SnakeMovement : MonoBehaviour
         direction = newDirection;
     }
 
-   private int getTurnSpriteIndex(Vector3 oldDirection, Vector3 newDirection){
+    private void tryEat()
+    {
+        GameObject[] strawberries = GameObject.FindGameObjectsWithTag("Strawberry");
+        for (int i = 0; i < strawberries.Length; i++)
+        {
+            if (strawberries[i].transform.position == transform.position)
+            {
+                Destroy(strawberries[i]);
+                GameObject.Find("GameManager").GetComponent<GameManager>().SpawnStrawberry();
+                ate++;
+                GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(ate);
+            }
+        }
+    }
+
+    private int getTurnSpriteIndex(Vector3 oldDirection, Vector3 newDirection){
             // sprite 0 is left up
             // sprite 1 is right up
             // sprite 2 is up left
@@ -216,9 +229,42 @@ public class SnakeMovement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.A) && transform.rotation.eulerAngles.z != 270)
         {
             lastKey = KeyCode.A;
-        }else if (Input.GetKeyDown(KeyCode.Space))
+        }
+    }
+
+    public void startMiniGame()
+    {
+    stunTimer = stunTime;
+        //spawn the minigame closer to the middle so it doesn't get cut off
+        Vector3 pos = transform.position;
+        pos  = pos + ( new Vector3(0,0,0) - pos).normalized*2f;
+        GameObject obj = Instantiate(miniGame,  pos, Quaternion.identity);
+        obj.SetActive(true);
+        Destroy(obj, stunTime);
+    }
+
+    internal bool isFreePosition(Vector3 spawnPos)
+    {
+        if (spawnPos == transform.position)
         {
-            ate = true;
+            return false;
+        }
+        for (int i = 0; i < bodyParts.Count; i++)
+        {
+            if (spawnPos == bodyParts[i].transform.position)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Apple")
+        {
+            Destroy(collision.gameObject);
+            ate+=3;
         }
     }
 }
