@@ -40,7 +40,7 @@ public class PointerMinigame : MonoBehaviour
                 winAnimation.GetComponent<TextMeshPro>().SetText("Good!");
                 winAnimation.GetComponent<TextMeshPro>().color = Color.green;
                 try {
-                    GameObject.Find("Snake").GetComponent<SnakeMovement>().stunTimer = 0.0f;
+                    GameObject.Find("Snake").GetComponent<SnakeMovement>().endStun();
                 }
                 catch
                 {
@@ -72,7 +72,6 @@ public class PointerMinigame : MonoBehaviour
 
     void FixedUpdate() {
         pointer.transform.localPosition = new Vector3(pointer.transform.localPosition.x + pointerSpeed * Time.deltaTime, pointer.transform.localPosition.y, pointer.transform.localPosition.z);
-        Debug.Log(pointer.transform.localPosition.x);
         if (pointerSpeed > 0 && pointer.transform.localPosition.x > 0.5f - offset)
             pointerSpeed = -pointerSpeed;
         else if (pointerSpeed < 0 && pointer.transform.localPosition.x < -0.5f+offset)

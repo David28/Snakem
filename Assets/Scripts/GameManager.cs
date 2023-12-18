@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,9 +12,15 @@ public class GameManager : MonoBehaviour
     public GameObject snake;
     public SnakeMovement snakeMovement;
     public GameObject strawberry;
+    public float timer = 0;
+    public float matchTime = 60*3; //3 minutes
+    public TMP_Text timerText;
     // Start is called before the first frame update
     void Start()
     {
+        timerText = GameObject.Find("Timer").GetComponent<TMP_Text>();
+        timerText.text = "3:00";
+        timer = matchTime;
         SnakeMovement snakeMovement = snake.GetComponent<SnakeMovement>();
         //spawn 3 strawberries in the grid except on the snake 
         for (int i = 0; i < 3; i++)
@@ -26,7 +33,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            timer = 0;
+            //end game
+        }
+        int minutes = (int) (timer / 60);
+        int seconds = (int) (timer % 60);
+        timerText.text = minutes + ":" + seconds.ToString("00");
+        
     }
     private List<GameObject> strawberries = new List<GameObject>();
     public void SpawnStrawberry()

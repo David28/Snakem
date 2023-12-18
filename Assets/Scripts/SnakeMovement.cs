@@ -21,10 +21,7 @@ public class SnakeMovement : MonoBehaviour
 
     //keep track of last key pressed
     private KeyCode lastKey = KeyCode.W;
-    public List<GameObject> bodyParts = new List<GameObject>();
-
-    public Sprite[] turnSprite;
-    public Sprite bodySprite;
+    public List<BodyPartMovement> bodyParts = new List<BodyPartMovement>();
     public int ate = 0;
     public Vector3 direction;
 
@@ -40,7 +37,10 @@ public class SnakeMovement : MonoBehaviour
         {
             stunTimer -= Time.deltaTime;
             return;
-        }
+        }else 
+            endStun();
+
+        //movement timer
         if (timer < 0.5)
         {
             timer+=Time.deltaTime;
@@ -54,52 +54,38 @@ public class SnakeMovement : MonoBehaviour
 
         Vector3 newDirection = Vector3.zero;
         if (lastKey == KeyCode.W ){
-            transform.rotation = Quaternion.Euler(0, 0, 0);
             newDirection = Vector3.up;
             //transform.position.x += 0.5f;
             //transform.position.y += 0.547f;
         }
         else if (lastKey == KeyCode.S)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 180);
             newDirection = Vector3.down;
             //transform.position.x += 0.5f;
             //transform.position.y += .453f;
         }
         else if (lastKey == KeyCode.D)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 270);
             newDirection = Vector3.right;
             //transform.position.y += 0.5f;
             //transform.position.x += .453f;
         }
         else if (lastKey == KeyCode.A)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 90);
             newDirection = Vector3.left;
             //transform.position.y += 0.5f;
             //transform.position.x += 0.547f;
         }
 
-        if (ate >= 3) {
-            //spawn it closer to middle
-            GameObject g = (GameObject)Instantiate(bodyParts[0], transform.position, transform.rotation);
-            g.GetComponent<SpriteRenderer>().sprite = bodySprite;
-            bodyParts.Insert(0, g);
-            
-            ate -= 3;
-            GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(Mathf.Min(ate,3));
-            //floor the position
-            transform.position += transform.rotation*Vector3.up;
-            return;
-        }
+        
         //check if head is gonna hit a body part or the wall
-        Vector3 nextPos = transform.position + transform.rotation*Vector3.up;
+        Vector3 nextPos = transform.position + newDirection;
         if (nextPos.x >= 5.5 || nextPos.x <= -5.5 || nextPos.y >= 5.5 || nextPos.y <= -5.5)
         {
             //hit the wall
             Debug.Log("Hit the wall");
             startMiniGame();
+            fixRotationFromSideImpact(transform.position, nextPos);
             return;
         }
         else
@@ -110,48 +96,62 @@ public class SnakeMovement : MonoBehaviour
                 {
                     //hit a body part
                     Debug.Log("Hit a body part");
+                    fixRotationFromSideImpact(transform.position, bodyParts[i].transform.position);
                     startMiniGame();
                     return;
                 }
             }
         }
 
+        Vector2 oldHeadPos = transform.position;
+        Vector2 oldDirection = newDirection;
 
-        transform.position += transform.rotation*Vector3.up;
+        //move head and fix rotation
+        transform.position += newDirection;
+        transform.rotation = getRotationFromDirection(newDirection);
+
+        //make position round to nearest 0.5
+        transform.position = new Vector3(Mathf.Round(transform.position.x*2)/2, Mathf.Round(transform.position.y*2)/2, 0);
         tryEat();
-        int tailIndex = bodyParts.Count-1;
-        float[] prevRotations = new float[bodyParts.Count+1];
-        prevRotations[0] = transform.rotation.eulerAngles.z;
-        // move the body adjusting the sprites and bodyParts rotation
+        if (ate >= 3) {
+            GameObject lastBodyPart = bodyParts[bodyParts.Count-2].gameObject;
+            GameObject tail = bodyParts[bodyParts.Count-1].gameObject;
+            //spawn it closer to middle
+            GameObject g = Instantiate(lastBodyPart, tail.transform.position, tail.transform.rotation);
+            bodyParts.Insert(bodyParts.Count-1, g.gameObject.GetComponent<BodyPartMovement>());
+            g.gameObject.GetComponent<BodyPartMovement>().Start();
+            g.gameObject.GetComponent<BodyPartMovement>().direction = tail.GetComponent<BodyPartMovement>().direction;
+            ate -= 3;
+            GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(Mathf.Min(ate,3));
+            //floor the position
+        }
         for (int i = 0; i < bodyParts.Count; i++)
         {
-            Transform rot = bodyParts[i].transform;
-            float newRot = rot.rotation.eulerAngles.z;
-            bodyParts[i].transform.position += rot.rotation*Vector3.up;
-
-            //save the rotation for the next body part, and update this body part's rotation
-            bodyParts[i].transform.rotation = Quaternion.Euler(0, 0, prevRotations[i]);
-            prevRotations[i+1] = newRot;
-
-        } 
-        // one more loop to fix the sprites
-        for (int i = 0; i < bodyParts.Count-1; i++)
-        {
-            Transform front = (i == 0) ? transform : bodyParts[i-1].transform;
-            Transform back = bodyParts[i+1].transform;
-            int index = getTurnSpriteIndex(Quaternion.Euler(0,0,prevRotations[i+1])*Vector3.up, Quaternion.Euler(0,0,prevRotations[i])*Vector3.up);
-
-            if (index != -1)
-            {
-                bodyParts[i].GetComponent<SpriteRenderer>().sprite = turnSprite[index];
-            }
-            else
-            {
-                bodyParts[i].GetComponent<SpriteRenderer>().sprite = bodySprite;
-            }
+            Vector2 newPos = bodyParts[i].gameObject.transform.position;
+            oldDirection = bodyParts[i].moveTo(oldHeadPos, oldDirection);
+            oldHeadPos = newPos;
         }
-
+        
         direction = newDirection;
+    }
+
+    private Quaternion getRotationFromDirection(Vector3 newDirection)
+    {
+        return Quaternion.Euler(0, 0,  (int) (Mathf.Atan2(newDirection.y, newDirection.x) * Mathf.Rad2Deg) -90);
+    }
+
+    private void fixRotationFromSideImpact(Vector3 headPos, Vector3 hitPos)
+    {
+        Debug.Log("headPos: " + headPos);
+        Debug.Log("hitPos: " + hitPos);
+        Vector3 direction = transform.rotation * Vector3.up;
+        if (hitPos - headPos == direction)
+            return;
+        Debug.Log("fixing rotation");
+        Vector2 hitDirection = hitPos - headPos;
+        Quaternion rotation = Quaternion.Euler(0, 0, 90) * getRotationFromDirection(hitDirection);
+        transform.rotation = rotation;
+        this.GetComponent<Animator>().SetTrigger("Side Impact");
     }
 
     private void tryEat()
@@ -168,49 +168,6 @@ public class SnakeMovement : MonoBehaviour
             }
         }
     }
-
-    private int getTurnSpriteIndex(Vector3 oldDirection, Vector3 newDirection){
-            // sprite 0 is left up
-            // sprite 1 is right up
-            // sprite 2 is up left
-            // sprite 3 is up right
-        if (oldDirection == Vector3.up && newDirection == Vector3.left)
-        {
-            return 1;
-        }
-        else if (oldDirection == Vector3.up && newDirection == Vector3.right)
-        {
-            return 0;
-        }
-        else if (oldDirection == Vector3.down && newDirection == Vector3.left)
-        {
-            return 0;
-        }
-        else if (oldDirection == Vector3.down && newDirection == Vector3.right)
-        {
-            return 1;
-        }
-        else if (oldDirection == Vector3.left && newDirection == Vector3.up)
-        {
-            return 0;
-        }
-        else if (oldDirection == Vector3.left && newDirection == Vector3.down)
-        {
-            return 1;
-        }
-        else if (oldDirection == Vector3.right && newDirection == Vector3.up)
-        {
-            return 1;
-        }
-        else if (oldDirection == Vector3.right && newDirection == Vector3.down)
-        {
-            return 0;
-        }
-        else
-        {
-            return -1;
-        }
-   }
 
     private void getValidKey()
     {
@@ -232,9 +189,12 @@ public class SnakeMovement : MonoBehaviour
         }
     }
 
+    public GameObject stunEffect;
     public void startMiniGame()
     {
-    stunTimer = stunTime;
+        stunEffect.SetActive(true);
+
+        stunTimer = stunTime;
         //spawn the minigame closer to the middle so it doesn't get cut off
         Vector3 pos = transform.position;
         pos  = pos + ( new Vector3(0,0,0) - pos).normalized*2f;
@@ -251,7 +211,7 @@ public class SnakeMovement : MonoBehaviour
         }
         for (int i = 0; i < bodyParts.Count; i++)
         {
-            if (spawnPos == bodyParts[i].transform.position)
+            if (spawnPos == bodyParts[i].gameObject.transform.position)
             {
                 return false;
             }
@@ -266,5 +226,14 @@ public class SnakeMovement : MonoBehaviour
             Destroy(collision.gameObject);
             ate+=3;
         }
+    }
+
+    internal void endStun()
+    {
+        if (stunTimer == -1.0f)
+            return;
+        stunTimer = -1.0f;
+        this.GetComponent<Animator>().SetTrigger("End Stun");
+        this.transform.rotation = getRotationFromDirection(direction);
     }
 }
