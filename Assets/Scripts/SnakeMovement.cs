@@ -29,6 +29,10 @@ public class SnakeMovement : MonoBehaviour
     public float stunTime = 3.0f;
 
     public GameObject miniGame;
+
+    public float boost = 0.0f;
+    public float boostDecreaseRate = 20f;
+    public ParticleSystem boostEffect;
     // Update is called once per frame
     void Update()
     {
@@ -41,7 +45,7 @@ public class SnakeMovement : MonoBehaviour
             endStun();
 
         //movement timer
-        if (timer < 0.5)
+        if (timer < 0.5-boost)
         {
             timer+=Time.deltaTime;
             return;
@@ -49,8 +53,15 @@ public class SnakeMovement : MonoBehaviour
         {
             timer = 0;
         }
-        
-
+        if (boost > 0.0f){
+            boost -= Time.deltaTime*boostDecreaseRate;
+            
+        }
+        else
+        {
+            boostEffect.Stop();
+            boost = 0.0f;
+        }
 
         Vector3 newDirection = Vector3.zero;
         if (lastKey == KeyCode.W ){
@@ -187,6 +198,17 @@ public class SnakeMovement : MonoBehaviour
         {
             lastKey = KeyCode.A;
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //spend 1 strawberry to get a boost
+            if (ate > 0){
+                ate--;
+                GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(ate);
+                boost += 0.3f;
+                boostEffect.Play();
+            }
+        }
     }
 
     public GameObject stunEffect;
@@ -194,6 +216,8 @@ public class SnakeMovement : MonoBehaviour
     {
         stunEffect.SetActive(true);
 
+        if (stunTimer > 0.0f)
+            return;
         stunTimer = stunTime;
         //spawn the minigame closer to the middle so it doesn't get cut off
         Vector3 pos = transform.position;
@@ -225,6 +249,7 @@ public class SnakeMovement : MonoBehaviour
         {
             Destroy(collision.gameObject);
             ate+=3;
+            GameObject.FindObjectOfType<GameManager>().SetAppleRespawnTimer();
         }
     }
 

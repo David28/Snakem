@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,9 +16,13 @@ public class GameManager : MonoBehaviour
     public float timer = 0;
     public float matchTime = 60*3; //3 minutes
     public TMP_Text timerText;
+    public Slider appleText;
     // Start is called before the first frame update
     void Start()
     {
+        apple = Instantiate(apple, new Vector3(0, 0, 0), Quaternion.identity);
+        apple.SetActive(false);
+
         timerText = GameObject.Find("Timer").GetComponent<TMP_Text>();
         timerText.text = "3:00";
         timer = matchTime;
@@ -27,7 +32,7 @@ public class GameManager : MonoBehaviour
         {
             SpawnStrawberry();
         }
-        
+        appleText.maxValue = appleRespawnTime;
     }
 
     // Update is called once per frame
@@ -39,10 +44,22 @@ public class GameManager : MonoBehaviour
             timer = 0;
             //end game
         }
+        
         int minutes = (int) (timer / 60);
         int seconds = (int) (timer % 60);
         timerText.text = minutes + ":" + seconds.ToString("00");
         
+
+        if (appleRespawnTimer > 0)
+        {
+            appleRespawnTimer -= Time.deltaTime;
+            appleText.value = appleRespawnTimer;
+            if (appleRespawnTimer <= 0)
+            {
+                SpawnApple();
+            }
+
+        }
     }
     private List<GameObject> strawberries = new List<GameObject>();
     public void SpawnStrawberry()
@@ -81,4 +98,31 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private float appleRespawnTimer;
+    public void SpawnApple()
+    {
+        //create all possible positions
+        List<Vector2> possiblePositions = new List<Vector2>();
+        for (float x = -mapSize.x / 2 + 0.5f; x < mapSize.x / 2 - 0.5f; x += 1f)
+        {
+            for (float y = -mapSize.y / 2 + 0.5f; y < mapSize.y / 2 - 0.5f; y += 1f)
+            {
+                if (!snakeMovement.isFreePosition(new Vector3(x, y, 0f)))
+                {
+                    continue;
+                }
+                possiblePositions.Add(new Vector2(x, y));
+            }
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, possiblePositions.Count);
+        Vector2 randomPosition = possiblePositions[randomIndex];
+        Instantiate(apple, randomPosition, Quaternion.identity).SetActive(true);
+    }
+
+    public float appleRespawnTime = 5f;
+    internal void SetAppleRespawnTimer()
+    {
+        appleRespawnTimer = appleRespawnTime;
+    }
 }

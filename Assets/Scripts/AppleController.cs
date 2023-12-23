@@ -19,6 +19,8 @@ void Start ()
    body = GetComponent<Rigidbody2D>();
 }
 
+public Vector2 shootDirection = new Vector2(1, 0);
+
 void Update()
 {
    // Gives a value between -1 and 1
@@ -59,6 +61,7 @@ void Update()
    }else
    {
       this.GetComponent<Animator>().SetBool("Idle", false);
+      shootDirection = new Vector2(horizontal, vertical);
    }
 
 
@@ -67,11 +70,11 @@ void Update()
 
    public GameObject spitPrefab;
    void spit()  {
-      if (ate == 0 || (horizontal == 0 && vertical == 0) ) {
+      if (ate == 0  ) {
          return;
       }
-      GameObject spit = Instantiate(spitPrefab, transform.position+new Vector3(horizontal, vertical)*0.3f, Quaternion.identity);
-      spit.GetComponent<SpitController>().direction = new Vector2(horizontal, vertical);
+      GameObject spit = Instantiate(spitPrefab, transform.position+((Vector3)shootDirection)*0.3f, Quaternion.identity);
+      spit.GetComponent<SpitController>().direction = shootDirection;
       spit.SetActive(true);
       ate--;
       GameObject.Find("Apple Stomach").GetComponent<StomachController>().setStomach(ate);
