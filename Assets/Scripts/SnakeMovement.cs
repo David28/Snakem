@@ -224,9 +224,9 @@ public class SnakeMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Apple")
         {
-            Destroy(collision.gameObject);
             ate+=3;
             GameObject.FindObjectOfType<GameManager>().SetAppleRespawnTimer();
+            collision.gameObject.GetComponent<AppleController>().Kill();
         }
     }
 

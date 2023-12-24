@@ -26,6 +26,9 @@ public class SpitController : MonoBehaviour
         {
             other.gameObject.GetComponent<SnakeMovement>().startMiniGame();
             Destroy(gameObject);
+        }else if (!other.gameObject.CompareTag("Apple"))
+        {
+            Destroy(gameObject);
         }
     }
 }

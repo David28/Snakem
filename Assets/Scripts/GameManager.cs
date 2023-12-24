@@ -20,9 +20,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        apple = Instantiate(apple, new Vector3(0, 0, 0), Quaternion.identity);
-        apple.SetActive(false);
-
         timerText = GameObject.Find("Timer").GetComponent<TMP_Text>();
         timerText.text = "3:00";
         timer = matchTime;
@@ -101,23 +98,7 @@ public class GameManager : MonoBehaviour
     private float appleRespawnTimer;
     public void SpawnApple()
     {
-        //create all possible positions
-        List<Vector2> possiblePositions = new List<Vector2>();
-        for (float x = -mapSize.x / 2 + 0.5f; x < mapSize.x / 2 - 0.5f; x += 1f)
-        {
-            for (float y = -mapSize.y / 2 + 0.5f; y < mapSize.y / 2 - 0.5f; y += 1f)
-            {
-                if (!snakeMovement.isFreePosition(new Vector3(x, y, 0f)))
-                {
-                    continue;
-                }
-                possiblePositions.Add(new Vector2(x, y));
-            }
-        }
-
-        int randomIndex = UnityEngine.Random.Range(0, possiblePositions.Count);
-        Vector2 randomPosition = possiblePositions[randomIndex];
-        Instantiate(apple, randomPosition, Quaternion.identity).SetActive(true);
+        apple.GetComponent<AppleController>().Respawn();
     }
 
     public float appleRespawnTime = 5f;
