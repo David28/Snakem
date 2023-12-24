@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SnakeMovement : MonoBehaviour
 {
-    private 
+     
     void Start() 
     {
         //set all rotations to 0
@@ -20,7 +20,7 @@ public class SnakeMovement : MonoBehaviour
     private float timer = 0;
 
     //keep track of last key pressed
-    private KeyCode lastKey = KeyCode.W;
+    private Vector3 newDirection = Vector3.up;
     public List<BodyPartMovement> bodyParts = new List<BodyPartMovement>();
     public int ate = 0;
     public Vector3 direction;
@@ -32,7 +32,6 @@ public class SnakeMovement : MonoBehaviour
 
     public float boost = 0.0f;
     public float boostDecreaseRate = 20f;
-    public ParticleSystem boostEffect;
     // Update is called once per frame
     void Update()
     {
@@ -59,34 +58,11 @@ public class SnakeMovement : MonoBehaviour
         }
         else
         {
-            boostEffect.Stop();
+            this.GetComponent<Animator>().SetTrigger("End Stun");
             boost = 0.0f;
         }
 
-        Vector3 newDirection = Vector3.zero;
-        if (lastKey == KeyCode.W ){
-            newDirection = Vector3.up;
-            //transform.position.x += 0.5f;
-            //transform.position.y += 0.547f;
-        }
-        else if (lastKey == KeyCode.S)
-        {
-            newDirection = Vector3.down;
-            //transform.position.x += 0.5f;
-            //transform.position.y += .453f;
-        }
-        else if (lastKey == KeyCode.D)
-        {
-            newDirection = Vector3.right;
-            //transform.position.y += 0.5f;
-            //transform.position.x += .453f;
-        }
-        else if (lastKey == KeyCode.A)
-        {
-            newDirection = Vector3.left;
-            //transform.position.y += 0.5f;
-            //transform.position.x += 0.547f;
-        }
+        
 
         
         //check if head is gonna hit a body part or the wall
@@ -144,6 +120,7 @@ public class SnakeMovement : MonoBehaviour
         }
         
         direction = newDirection;
+        SetNextDirection(direction);
     }
 
     private Quaternion getRotationFromDirection(Vector3 newDirection)
@@ -184,19 +161,19 @@ public class SnakeMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W) && transform.rotation.eulerAngles.z != 180)
         {
-            lastKey = KeyCode.W;
+            SetNextDirection(Vector3.up);
         }
         else if (Input.GetKeyDown(KeyCode.S) && transform.rotation.eulerAngles.z != 0)
         {
-            lastKey = KeyCode.S;
+            SetNextDirection(Vector3.down);
         }
         else if (Input.GetKeyDown(KeyCode.D) && transform.rotation.eulerAngles.z != 90)
         {
-            lastKey = KeyCode.D;
+            SetNextDirection(Vector3.right);
         }
         else if (Input.GetKeyDown(KeyCode.A) && transform.rotation.eulerAngles.z != 270)
         {
-            lastKey = KeyCode.A;
+            SetNextDirection(Vector3.left);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -205,8 +182,8 @@ public class SnakeMovement : MonoBehaviour
             if (ate > 0){
                 ate--;
                 GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(ate);
-                boost += 0.3f;
-                boostEffect.Play();
+                boost = 0.3f;
+                this.GetComponent<Animator>().SetTrigger("Boost");
             }
         }
     }
@@ -260,5 +237,30 @@ public class SnakeMovement : MonoBehaviour
         stunTimer = -1.0f;
         this.GetComponent<Animator>().SetTrigger("End Stun");
         this.transform.rotation = getRotationFromDirection(direction);
+    }
+
+    internal void DestroyBodyPart()
+    {
+        Debug.Log("Destroying body part");
+        if (bodyParts.Count <= 2)
+            return;
+        //remove the neck
+        GameObject neck = bodyParts[0].gameObject;
+        bodyParts.RemoveAt(0);
+        this.transform.position = neck.transform.position;
+        Vector2 direction = neck.transform.position - bodyParts[0].transform.position;
+        SetNextDirection(direction);
+        this.transform.rotation = getRotationFromDirection(direction);
+        Destroy(neck);
+
+    }
+
+    public GameObject NextDirectionSprite;
+    private void SetNextDirection(Vector3 newDirection)
+    {
+        this.newDirection = newDirection;
+        NextDirectionSprite.transform.rotation = getRotationFromDirection(newDirection)*Quaternion.Euler(0,0,90);
+        NextDirectionSprite.transform.position = transform.position + newDirection;
+
     }
 }

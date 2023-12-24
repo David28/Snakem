@@ -55,7 +55,7 @@ public class PointerMinigame : MonoBehaviour
                 winAnimation.GetComponent<TextMeshPro>().SetText("Oops!");
                 winAnimation.GetComponent<TextMeshPro>().color = Color.red;
                 try {
-                    GameObject.Find("Snake").GetComponent<SnakeMovement>().stunTimer += 3.0f;
+                    GameObject.FindObjectOfType<SnakeMovement>().DestroyBodyPart();
                 }
                 catch
                 {

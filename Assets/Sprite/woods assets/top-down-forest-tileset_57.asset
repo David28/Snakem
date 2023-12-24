@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: top-down-forest-tileset_57
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 1624379106, guid: d7b55feb83653004e8fa69b9adba2e82, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.057418045, g: 0.3301887, b: 0, a: 1}
   m_Transform:
     e00: 1
     e01: 0
