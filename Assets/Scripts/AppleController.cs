@@ -20,7 +20,7 @@ void Start ()
 }
 
 public Vector2 shootDirection = new Vector2(1, 0);
-private bool amDead = false;
+public bool amDead = false;
 void Update()
 {
 
