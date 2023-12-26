@@ -4,37 +4,52 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Vector2 mapSize = new Vector2(10, 10);
 
-    public GameObject apple;
-    public GameObject snake;
-    public SnakeMovement snakeMovement;
-    public GameObject strawberry;
+    private GameObject apple;
+    private GameObject snake;
+    private SnakeMovement snakeMovement;
+    private AppleController appleController;
+    private GameObject strawberry;
     public float timer = 0;
     public float matchTime = 60*3; //3 minutes
-    public TMP_Text timerText;
-    public Slider appleText;
-    // Start is called before the first frame update
+    private TMP_Text timerText;
+    private Slider appleSlider;
+    public bool hasStarted = false;
+    public bool inMenu = true;
     void Start()
     {
+        Debug.Log("Awake");
+        if (inMenu)
+        {
+            DontDestroyOnLoad(gameObject);
+            return;
+        }
+        //get everything
+        apple = GameObject.Find("Apples");
+        snake = GameObject.Find("Snake");
+        snakeMovement = snake.GetComponent<SnakeMovement>();
+        appleController = apple.GetComponent<AppleController>();
         timerText = GameObject.Find("Timer").GetComponent<TMP_Text>();
+        strawberry = GameObject.Find("Strawberry");
+        appleSlider = GameObject.Find("Apple Headshot").GetComponent<Slider>();
+
         timerText.text = "3:00";
         timer = matchTime;
-        SnakeMovement snakeMovement = snake.GetComponent<SnakeMovement>();
-        //spawn 3 strawberries in the grid except on the snake 
-        for (int i = 0; i < 3; i++)
-        {
-            SpawnStrawberry();
-        }
-        appleText.maxValue = appleRespawnTime;
+        
+        appleSlider.maxValue = appleRespawnTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!hasStarted)
+        {
+            return;
+        }
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
@@ -50,7 +65,7 @@ public class GameManager : MonoBehaviour
         if (appleRespawnTimer > 0)
         {
             appleRespawnTimer -= Time.deltaTime;
-            appleText.value = appleRespawnTimer;
+            appleSlider.value = appleRespawnTimer;
             if (appleRespawnTimer <= 0)
             {
                 SpawnApple();
@@ -98,7 +113,7 @@ public class GameManager : MonoBehaviour
     private float appleRespawnTimer;
     public void SpawnApple()
     {
-        apple.GetComponent<AppleController>().Respawn();
+        appleController.Respawn();
     }
 
     public float appleRespawnTime = 5f;
@@ -106,4 +121,54 @@ public class GameManager : MonoBehaviour
     {
         appleRespawnTimer = appleRespawnTime;
     }
+
+    //function for animation events
+    public void BeginGame()
+    {
+        Destroy(GameObject.Find("Go"));
+        Destroy(GameObject.Find("Ready"));
+        timerText.gameObject.SetActive(true);     
+        snakeMovement.enabled = true;   
+        //spawn 3 strawberries in the grid except on the snake 
+        for (int i = 0; i < 3; i++)
+        {
+            SpawnStrawberry();
+        }
+        appleController.enabled = true;  
+        hasStarted = true;  
+    }
+
+    public void LoadGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Snake");
+        //get call back when scene is loaded
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+    }
+    private int round = 1;
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+    {
+        
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (inMenu)
+            inMenu = false;
+        else
+            round++;
+        
+        Start();
+    }
+
+    public Vector2 GetPlayerInput(int playerIndex)
+    {
+        if (playerIndex == 1)
+        {
+            return new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }
+        else
+        {
+            return new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
+        }
+    }
+
 }
