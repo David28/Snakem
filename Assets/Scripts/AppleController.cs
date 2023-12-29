@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AppleController : MonoBehaviour
+public class AppleController : Player
 {
   Rigidbody2D body;
 
@@ -21,16 +21,20 @@ void Start ()
 
 public Vector2 shootDirection = new Vector2(1, 0);
 public bool amDead = false;
+
+private Vector2 input;
 void Update()
 {
 
    // Gives a value between -1 and 1
-   horizontal = Input.GetAxisRaw("Horizontal Apple"); // -1 is left
-   vertical = Input.GetAxisRaw("Vertical Apple"); // -1 is down
+   input = GetAppleInput();
+   horizontal = input.x;
+   vertical = input.y;
+   
    if (amDead) {
-      return;
-   }
-   if (Input.GetKeyDown(KeyCode.L)) {
+         return;
+      }
+      if (GetAppleAction()) {
       Debug.Log("Fire1");
       spit();
    }
@@ -123,7 +127,7 @@ void OnCollisionEnter2D(Collision2D other)
 
    internal void Kill()
    {
-      this.GetComponent<Animator>().SetTrigger("Idle");
+      if (amDead) return;
       this.GetComponent<Animator>().SetTrigger("Dead");
       this.transform.position = new Vector3();
       this.GetComponent<CapsuleCollider2D>().enabled = false;

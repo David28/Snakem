@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     private Slider appleSlider;
     public bool hasStarted = false;
     public bool inMenu = true;
+
+    private Vector2Int score = new Vector2Int(0, 0);
     void Start()
     {
         Debug.Log("Awake");
@@ -41,11 +43,21 @@ public class GameManager : MonoBehaviour
         timer = matchTime;
         
         appleSlider.maxValue = appleRespawnTime;
+
+        if (round > 1) {
+            snakeMovement.ChangePlayer();
+            appleController.ChangePlayer();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //test new Round
+            LoadGame();
+        }
         if (!hasStarted)
         {
             return;
@@ -127,7 +139,7 @@ public class GameManager : MonoBehaviour
     {
         Destroy(GameObject.Find("Go"));
         Destroy(GameObject.Find("Ready"));
-        timerText.gameObject.SetActive(true);     
+        timerText.gameObject.SetActive(true);   
         snakeMovement.enabled = true;   
         //spawn 3 strawberries in the grid except on the snake 
         for (int i = 0; i < 3; i++)
@@ -153,22 +165,13 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
         if (inMenu)
             inMenu = false;
-        else
+        else{
             round++;
+        }
         
         Start();
     }
 
-    public Vector2 GetPlayerInput(int playerIndex)
-    {
-        if (playerIndex == 1)
-        {
-            return new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        }
-        else
-        {
-            return new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2"));
-        }
-    }
+   
 
 }

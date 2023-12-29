@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SnakeMovement : MonoBehaviour
+public class SnakeMovement : Player
 {
      
     void Start() 
@@ -32,6 +32,8 @@ public class SnakeMovement : MonoBehaviour
 
     public float boost = 0.0f;
     public float boostDecreaseRate = 20f;
+
+    public GameObject plusAnim;
     // Update is called once per frame
     void Update()
     {
@@ -105,6 +107,7 @@ public class SnakeMovement : MonoBehaviour
             GameObject tail = bodyParts[bodyParts.Count-1].gameObject;
             //spawn it closer to middle
             GameObject g = Instantiate(lastBodyPart, tail.transform.position, tail.transform.rotation);
+            Instantiate(plusAnim,transform.position+new Vector3(0.5f,0f,0f), transform.rotation).SetActive(true);
             bodyParts.Insert(bodyParts.Count-1, g.gameObject.GetComponent<BodyPartMovement>());
             g.gameObject.GetComponent<BodyPartMovement>().Start();
             g.gameObject.GetComponent<BodyPartMovement>().direction = tail.GetComponent<BodyPartMovement>().direction;
@@ -159,31 +162,34 @@ public class SnakeMovement : MonoBehaviour
 
     private void getValidKey()
     {
-        if (Input.GetKeyDown(KeyCode.W) && transform.rotation.eulerAngles.z != 180)
+        Vector2 input = GetSnakeInput();
+        if (input == Vector2.up && transform.rotation.eulerAngles.z != 180)
         {
             SetNextDirection(Vector3.up);
         }
-        else if (Input.GetKeyDown(KeyCode.S) && transform.rotation.eulerAngles.z != 0)
+        else if (input == Vector2.down && transform.rotation.eulerAngles.z != 0)
         {
             SetNextDirection(Vector3.down);
         }
-        else if (Input.GetKeyDown(KeyCode.D) && transform.rotation.eulerAngles.z != 90)
+        else if (input == Vector2.right && transform.rotation.eulerAngles.z != 90)
         {
             SetNextDirection(Vector3.right);
         }
-        else if (Input.GetKeyDown(KeyCode.A) && transform.rotation.eulerAngles.z != 270)
+        else if (input == Vector2.left && transform.rotation.eulerAngles.z != 270)
         {
             SetNextDirection(Vector3.left);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (GetSnakeAction())
         {
             //spend 1 strawberry to get a boost
             if (ate > 0){
                 ate--;
                 GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(ate);
+                if (boost == 0)
+                    this.GetComponent<Animator>().SetTrigger("Boost");
                 boost = 0.3f;
-                this.GetComponent<Animator>().SetTrigger("Boost");
+                
             }
         }
     }
@@ -239,18 +245,21 @@ public class SnakeMovement : MonoBehaviour
         this.transform.rotation = getRotationFromDirection(direction);
     }
 
+    public GameObject minusAnim;
     internal void DestroyBodyPart()
     {
         Debug.Log("Destroying body part");
         if (bodyParts.Count <= 2)
             return;
+        endStun();
         //remove the neck
         GameObject neck = bodyParts[0].gameObject;
         bodyParts.RemoveAt(0);
+        Instantiate(minusAnim, neck.transform.position+new Vector3(0.5f,0f,0f), neck.transform.rotation).SetActive(true);
         this.transform.position = neck.transform.position;
         Vector2 direction = neck.transform.position - bodyParts[0].transform.position;
-        SetNextDirection(direction);
         this.transform.rotation = getRotationFromDirection(direction);
+        SetNextDirection(direction);
         Destroy(neck);
 
     }
