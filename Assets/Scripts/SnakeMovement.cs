@@ -31,6 +31,7 @@ public class SnakeMovement : Player
     public GameObject miniGame;
 
     public float boost = 0.0f;
+    public float boostValue = 0.3f;
     public float boostDecreaseRate = 20f;
 
     public GameObject plusAnim;
@@ -45,6 +46,19 @@ public class SnakeMovement : Player
         }else 
             endStun();
 
+        if (GetSnakeAction())
+        {
+            //spend 1 strawberry to get a boost
+            if (ate > 0){
+                ate--;
+                GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(ate);
+                if (boost == 0)
+                    this.GetComponent<Animator>().SetBool("Boosting", true);
+                boost = boostValue;
+                
+            }
+        }
+
         //movement timer
         if (timer < 0.5-boost)
         {
@@ -54,17 +68,14 @@ public class SnakeMovement : Player
         {
             timer = 0;
         }
+        
         if (boost > 0.0f){
             boost -= Time.deltaTime*boostDecreaseRate;
-            
         }
-        else
-        {
-            this.GetComponent<Animator>().SetTrigger("End Stun");
+        if (boost < 0.0f){
+            this.GetComponent<Animator>().SetBool("Boosting", false);
             boost = 0.0f;
         }
-
-        
 
         
         //check if head is gonna hit a body part or the wall
@@ -106,14 +117,15 @@ public class SnakeMovement : Player
             GameObject lastBodyPart = bodyParts[bodyParts.Count-2].gameObject;
             GameObject tail = bodyParts[bodyParts.Count-1].gameObject;
             //spawn it closer to middle
-            GameObject g = Instantiate(lastBodyPart, tail.transform.position, tail.transform.rotation);
+            GameObject g = Instantiate(lastBodyPart, tail.transform.position, tail.transform.rotation, this.transform.parent);
             Instantiate(plusAnim,transform.position+new Vector3(0.5f,0f,0f), transform.rotation).SetActive(true);
             bodyParts.Insert(bodyParts.Count-1, g.gameObject.GetComponent<BodyPartMovement>());
             g.gameObject.GetComponent<BodyPartMovement>().Start();
             g.gameObject.GetComponent<BodyPartMovement>().direction = tail.GetComponent<BodyPartMovement>().direction;
             ate -= 3;
             GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(Mathf.Min(ate,3));
-            //floor the position
+
+            GameObject.FindObjectOfType<GameManager>().AddPoint(this.player);
         }
         for (int i = 0; i < bodyParts.Count; i++)
         {
@@ -133,16 +145,32 @@ public class SnakeMovement : Player
 
     private void fixRotationFromSideImpact(Vector3 headPos, Vector3 hitPos)
     {
+        SpriteRenderer sr = this.GetComponent<SpriteRenderer>();
+
         Debug.Log("headPos: " + headPos);
         Debug.Log("hitPos: " + hitPos);
         Vector3 direction = transform.rotation * Vector3.up;
-        if (hitPos - headPos == direction)
+        
+        if (hitPos - headPos == direction){
+            this.GetComponent<Animator>().SetBool("Front Stunned", true);
             return;
+
+        }
         Debug.Log("fixing rotation");
         Vector2 hitDirection = hitPos - headPos;
-        Quaternion rotation = Quaternion.Euler(0, 0, 90) * getRotationFromDirection(hitDirection);
-        transform.rotation = rotation;
-        this.GetComponent<Animator>().SetTrigger("Side Impact");
+        Quaternion rotation = transform.rotation;
+        
+        //must flip sprite depending on rotation
+        if (rotation.eulerAngles.z == 0)
+            sr.flipX = hitPos.x < headPos.x;
+        else if (rotation.eulerAngles.z == 90)
+            sr.flipX = hitPos.y < headPos.y;
+        else if (rotation.eulerAngles.z == 180)
+            sr.flipX = hitPos.x > headPos.x;
+        else if (rotation.eulerAngles.z == 270)
+            sr.flipX = hitPos.y > headPos.y;
+
+        this.GetComponent<Animator>().SetBool("Side Stunned", true);
     }
 
     private void tryEat()
@@ -180,18 +208,7 @@ public class SnakeMovement : Player
             SetNextDirection(Vector3.left);
         }
 
-        if (GetSnakeAction())
-        {
-            //spend 1 strawberry to get a boost
-            if (ate > 0){
-                ate--;
-                GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(ate);
-                if (boost == 0)
-                    this.GetComponent<Animator>().SetTrigger("Boost");
-                boost = 0.3f;
-                
-            }
-        }
+        
     }
 
     public GameObject stunEffect;
@@ -241,8 +258,14 @@ public class SnakeMovement : Player
         if (stunTimer == -1.0f)
             return;
         stunTimer = -1.0f;
-        this.GetComponent<Animator>().SetTrigger("End Stun");
+        this.GetComponent<Animator>().SetBool("Side Stunned", false);
+        this.GetComponent<Animator>().SetBool("Front Stunned", false);
+        this.GetComponent<Animator>().SetBool("Boosting", false);
+        boost = 0.0f;
+        this.GetComponent<SpriteRenderer>().flipY = false;
+        this.GetComponent<SpriteRenderer>().flipX = false;
         this.transform.rotation = getRotationFromDirection(direction);
+
     }
 
     public GameObject minusAnim;
@@ -261,7 +284,8 @@ public class SnakeMovement : Player
         this.transform.rotation = getRotationFromDirection(direction);
         SetNextDirection(direction);
         Destroy(neck);
-
+        
+        GameObject.FindObjectOfType<GameManager>().RemovePoint(this.player);
     }
 
     public GameObject NextDirectionSprite;

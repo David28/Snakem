@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public Vector2 mapSize = new Vector2(10, 10);
 
-    private GameObject apple;
-    private GameObject snake;
+    public GameObject apple;
+    public GameObject snake;
     private SnakeMovement snakeMovement;
     private AppleController appleController;
     private GameObject strawberry;
@@ -21,15 +21,29 @@ public class GameManager : MonoBehaviour
     public bool hasStarted = false;
     public bool inMenu = true;
 
-    private Vector2Int score = new Vector2Int(0, 0);
+    private int[] score = new int[2];
+    private int round = 0;
+    private TMP_Text[] scoreDisplay;
     void Start()
     {
         Debug.Log("Awake");
         if (inMenu)
         {
             DontDestroyOnLoad(gameObject);
+            if (round >= 2){
+                if (score[0] == score[1]){
+                    GameObject.Find("Win").GetComponent<TMP_Text>().text = "It's a tie!";
+                    Destroy(GameObject.Find("Confetti"));
+                }
+                else
+                    GameObject.Find("Win").GetComponent<TMP_Text>().text = "Player " + ((score[0]>score[1])?"1":"2") + " Wins!";
+
+                Destroy(this.gameObject);
+            }
             return;
-        }
+        }else
+            round++;
+        Debug.Log("YO im starting round " + round);
         //get everything
         apple = GameObject.Find("Apples");
         snake = GameObject.Find("Snake");
@@ -43,7 +57,10 @@ public class GameManager : MonoBehaviour
         timer = matchTime;
         
         appleSlider.maxValue = appleRespawnTime;
-
+        scoreDisplay = GameObject.Find("Score Display").GetComponentsInChildren<TMP_Text>();
+        //Change round
+        scoreDisplay[0].text = "Round " + round;
+        scoreDisplay[1].text = "Score: \nPlayer 1:  " + score[0] + "\nPlayer 2:  "+ ((round==1)?"--":score[1]);
         if (round > 1) {
             snakeMovement.ChangePlayer();
             appleController.ChangePlayer();
@@ -53,6 +70,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inMenu)
+            return;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //test new Round
@@ -66,7 +85,9 @@ public class GameManager : MonoBehaviour
         if (timer <= 0)
         {
             timer = 0;
-            //end game
+            if (round < 2)
+                LoadGame();
+                
         }
         
         int minutes = (int) (timer / 60);
@@ -84,6 +105,8 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
+
     }
     private List<GameObject> strawberries = new List<GameObject>();
     public void SpawnStrawberry()
@@ -139,7 +162,6 @@ public class GameManager : MonoBehaviour
     {
         Destroy(GameObject.Find("Go"));
         Destroy(GameObject.Find("Ready"));
-        timerText.gameObject.SetActive(true);   
         snakeMovement.enabled = true;   
         //spawn 3 strawberries in the grid except on the snake 
         for (int i = 0; i < 3; i++)
@@ -152,26 +174,39 @@ public class GameManager : MonoBehaviour
 
     public void LoadGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Snake");
+        if (round == 2)
+        {
+            //load win screen
+            inMenu = true;
+            SceneManager.LoadScene("WinScene");
+        }else
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Snake");
         //get call back when scene is loaded
         SceneManager.sceneLoaded += OnSceneLoaded;
-
     }
-    private int round = 1;
 
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
     {
         
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        if (inMenu)
+        if (inMenu && scene.name == "Snake")
             inMenu = false;
-        else{
-            round++;
-        }
-        
         Start();
     }
 
-   
+    internal void RemovePoint(int player)
+    {
+        score[player]--;
+        scoreDisplay[1].text = "Score: \nPlayer 1:  " + score[0] + "\nPlayer 2:  "+ ((round==1)?"--":score[1]);
+    }
 
+    internal void AddPoint(int player)
+    {
+        score[player]++;
+        scoreDisplay[1].text = "Score: \nPlayer 1:  " + score[0] + "\nPlayer 2:  "+ ((round==1)?"--":score[1]);
+        if (score[player] >= mapSize.x * mapSize.y - 3)
+        {
+            LoadGame();
+        }
+    }
 }

@@ -9,18 +9,17 @@ public class PointerMinigame : MonoBehaviour
 
     public GameObject target; // target to hit
 
-    public GameObject winAnimation; // animation to play when player wins
     public float pointerSpeed = 1.0f;
 
 
     public float offset = 0.5f;
     public float targetSize = 0.3f;
-
+    private SnakeMovement snakeMovement;
     // Start is called before the first frame update
     void Start()
     {
-        //targetSize = target.transform.localScale.x/2;
-        Debug.Log(targetSize);
+        //Get snake movement script
+        snakeMovement = GameObject.Find("Snake").GetComponent<SnakeMovement>();
     }
 
     // Update is called once per frame
@@ -29,7 +28,7 @@ public class PointerMinigame : MonoBehaviour
         //move pointer back and forth
         
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (snakeMovement.GetSnakeAction())
         {
             
             //check if pointer is within target
@@ -37,10 +36,8 @@ public class PointerMinigame : MonoBehaviour
             {
                 //pointer is within target
                 Debug.Log("You win!");
-                winAnimation.GetComponent<TextMeshPro>().SetText("Good!");
-                winAnimation.GetComponent<TextMeshPro>().color = Color.green;
                 try {
-                    GameObject.Find("Snake").GetComponent<SnakeMovement>().endStun();
+                    snakeMovement.endStun();
                 }
                 catch
                 {
@@ -52,10 +49,8 @@ public class PointerMinigame : MonoBehaviour
                 //pointer is not within target
                 Debug.Log("You lose!");
                 //change win animation text to Nice Try and change color to red
-                winAnimation.GetComponent<TextMeshPro>().SetText("Oops!");
-                winAnimation.GetComponent<TextMeshPro>().color = Color.red;
                 try {
-                    GameObject.FindObjectOfType<SnakeMovement>().DestroyBodyPart();
+                    snakeMovement.DestroyBodyPart();
                 }
                 catch
                 {
@@ -65,7 +60,6 @@ public class PointerMinigame : MonoBehaviour
            target.GetComponent<SpriteRenderer>().enabled = false;
             pointer.GetComponent<SpriteRenderer>().enabled = false;
             area.GetComponent<Animator>().enabled = true;
-            winAnimation.SetActive(true);
         }
 
     }
