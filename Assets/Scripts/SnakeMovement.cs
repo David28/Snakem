@@ -70,7 +70,7 @@ public class SnakeMovement : Player
         }
         
         if (boost > 0.0f){
-            boost -= Time.deltaTime*boostDecreaseRate;
+            boost -= boostDecreaseRate;
         }
         if (boost < 0.0f){
             this.GetComponent<Animator>().SetBool("Boosting", false);
@@ -274,17 +274,17 @@ public class SnakeMovement : Player
         Debug.Log("Destroying body part");
         if (bodyParts.Count <= 2)
             return;
-        endStun();
         //remove the neck
         GameObject neck = bodyParts[0].gameObject;
         bodyParts.RemoveAt(0);
         Instantiate(minusAnim, neck.transform.position+new Vector3(0.5f,0f,0f), neck.transform.rotation).SetActive(true);
         this.transform.position = neck.transform.position;
         Vector2 direction = neck.transform.position - bodyParts[0].transform.position;
-        this.transform.rotation = getRotationFromDirection(direction);
-        SetNextDirection(direction);
         Destroy(neck);
-        
+
+        endStun();
+        this.transform.rotation = getRotationFromDirection(direction);
+        SetNextDirection(this.newDirection);
         GameObject.FindObjectOfType<GameManager>().RemovePoint(this.player);
     }
 
