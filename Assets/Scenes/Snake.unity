@@ -6038,10 +6038,10 @@ GameObject:
   m_Component:
   - component: {fileID: 515258772}
   - component: {fileID: 515258771}
-  - component: {fileID: 515258770}
   - component: {fileID: 515258774}
   - component: {fileID: 515258773}
   - component: {fileID: 515258775}
+  - component: {fileID: 515258776}
   m_Layer: 0
   m_Name: Strawberry
   m_TagString: Strawberry
@@ -6049,21 +6049,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &515258770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515258769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 399b26d7a691bb6468be4e5e0d32150e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wobbleSpeed: 1.7
-  maxScale: 1.1
-  destroyDelay: -1
 --- !u!212 &515258771
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6219,6 +6204,27 @@ MonoBehaviour:
   - {fileID: 609851613, guid: 5c8818e613f4e7349aaa985bbf6d2f80, type: 3}
   - {fileID: 1354732399, guid: 5c8818e613f4e7349aaa985bbf6d2f80, type: 3}
   - {fileID: -937598772, guid: 5c8818e613f4e7349aaa985bbf6d2f80, type: 3}
+--- !u!95 &515258776
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515258769}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a05b04111e29034391931108de8cf64, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

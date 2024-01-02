@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 255a54ad783f8b047bfb9dce90a95775
+guid: 77d37d76b51dce04baff1cd6d92d270b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -33,12 +34,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -47,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 31
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -123,19 +129,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: forest_tiles_0
+      name: Free Smoke Fx  Pixel 05_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 480
-        width: 32
-        height: 32
+        y: 896
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,41 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54d863291ff619f49a4705d3287f0ac0
-      internalID: -920125497
+      spriteID: 60449487503fd5947871728374db3fcd
+      internalID: -607522193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 480
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d4ccafae52b2b246a9dd3603c5a19a6
-      internalID: 1067696104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_2
+      name: Free Smoke Fx  Pixel 05_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 480
-        width: 32
-        height: 32
+        y: 896
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,41 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8998b50498c150f4fa3ec98bfafd65f2
-      internalID: -889734011
+      spriteID: b6edc8cdb6e301b458a4d254945dac65
+      internalID: -1482955852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 480
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2bedcdea7b1715f41bc25cd262f40be3
-      internalID: -1175727186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_4
+      name: Free Smoke Fx  Pixel 05_2
       rect:
         serializedVersion: 2
         x: 128
-        y: 480
-        width: 32
-        height: 32
+        y: 896
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,41 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa6486ddea541e543af0fb3cb89d45e6
-      internalID: 2052963657
+      spriteID: c1eebb91b47edee4ab9160a57df3e872
+      internalID: -1091764838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 480
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9cdd1bf6998e03f46acbdfe6d81567a6
-      internalID: -655818913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_6
+      name: Free Smoke Fx  Pixel 05_3
       rect:
         serializedVersion: 2
         x: 192
-        y: 480
-        width: 32
-        height: 32
+        y: 896
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,41 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd439aca6f1e2024da42d284bf7e2208
-      internalID: 1536891336
+      spriteID: 52fd60528230a83418395bf6384ea3a7
+      internalID: 678131367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 480
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba8c6a030e5f24e469f4de89d752ac3d
-      internalID: -469681044
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_8
+      name: Free Smoke Fx  Pixel 05_4
       rect:
         serializedVersion: 2
         x: 256
-        y: 480
-        width: 32
-        height: 32
+        y: 896
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,41 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98f221632519a6f46a5da8786a2bd956
-      internalID: -1017939169
+      spriteID: 3196483cc1a4b6a4d81dbbfb9424c7df
+      internalID: -1156476493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 480
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5129b65ed2ab5749b0b83d83ab58594
-      internalID: -1863420045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_10
+      name: Free Smoke Fx  Pixel 05_5
       rect:
         serializedVersion: 2
         x: 320
-        y: 480
-        width: 32
-        height: 32
+        y: 896
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,41 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 642368a2c66143340b5e9aa2e54c12d4
-      internalID: 1057856540
+      spriteID: 75a500297c162f749b5d9668b23a6aba
+      internalID: -727484054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_11
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 480
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d83f3e6bba8a7a14a8db3f1da30ef650
-      internalID: 865054826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_12
+      name: Free Smoke Fx  Pixel 05_6
       rect:
         serializedVersion: 2
         x: 384
-        y: 480
-        width: 32
-        height: 32
+        y: 896
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,41 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cc73af2082a26d4ab4070a0eee57690
-      internalID: -855100572
+      spriteID: 55ae9c55c546d4b4f8af1c87e066cc08
+      internalID: 1895421408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_13
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 480
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55e2f398955b1724ca79501d3348cb44
-      internalID: -1285133753
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_14
+      name: Free Smoke Fx  Pixel 05_7
       rect:
         serializedVersion: 2
         x: 448
-        y: 480
-        width: 32
-        height: 32
+        y: 896
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0b6a25e0541bfb41a5dbde03006fa58
-      internalID: -731926199
+      spriteID: e593bf62ef22012449acb0526c34a8d2
+      internalID: -550746598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_15
+      name: Free Smoke Fx  Pixel 05_8
       rect:
         serializedVersion: 2
-        x: 480
-        y: 480
-        width: 32
-        height: 32
+        x: 512
+        y: 896
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,20 +318,1217 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c47059c60485314db63465994cfa2d6
-      internalID: -364255266
+      spriteID: b67b7ce2658179e43a59655ebf156ce6
+      internalID: 280695413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_16
+      name: Free Smoke Fx  Pixel 05_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ba7db7d44936e47b15c1f6158b0e74
+      internalID: -426181931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94f833b5cc392f42a9f45054672679e
+      internalID: 1818464562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3acfaa19470d4af43ba53a572613399b
+      internalID: -1072901194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80806b9516a5df04cb44a3f174ceab98
+      internalID: 1744699506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 602b2e8f98af021489d259b0ace08287
+      internalID: -1587063187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5747747566d21ed47a9eec6013d22eff
+      internalID: 1077331373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_15
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9535f642ee9c5ba4595210276c7fd170
+      internalID: 691877748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 019f16a6d33976a47a83c647443ed3b6
+      internalID: 471646994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_17
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f6b359af2a47964982840a4214a72ca
+      internalID: -1083686118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5529ad9f6e3ecad4cbbd9f6a5673f0ba
+      internalID: 1321220206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_19
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001d4fd852031d4488bbec511b52cda1
+      internalID: 1784507364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c24b0e44031734fbff259d39b6c705
+      internalID: 1416277130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320f56fb3f069be449a1601ec665d7c3
+      internalID: 1257985436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93629f69842093d47a202eaece3036a7
+      internalID: 90024570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf782f085f3a7d4aa4291a50af733f8
+      internalID: -1540941141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a01f2d5c8535e34384de6d9103f297b
+      internalID: 2071539902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_25
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acbef9a02503c4428fa3126c459e090
+      internalID: -1032650571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_26
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f441adf02c594294a815ad81d409f01e
+      internalID: -280324010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_27
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4947c9688752a4c8873b8b4fe6ee45
+      internalID: 1340268875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_28
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5533f8a5fe2642a449af11b879fbb6dd
+      internalID: 2039255453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_29
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4524a848b83d2e14883f31fc9dfd50f7
+      internalID: 262913366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541d3139610248440aee593918427f3b
+      internalID: 47330958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_31
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ade00b2bb541944bad8190d8f04f203
+      internalID: -811494028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 492676a598fc1e3489468e47b54f7240
+      internalID: -1624349146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f856ecbe03fef224a8db5adb8e46f938
+      internalID: 388512977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_34
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd130b36ef94e6d4fb63b19acb8df5c1
+      internalID: 1450481174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_35
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 432cbcb8412fd7c4197aeff3ba4c7be7
+      internalID: -77513274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_36
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a778492bfdbbc3941b3ba3c1400466de
+      internalID: -955852836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_37
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b31ca4e437a53643a1d7ee97d633910
+      internalID: 1709900182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_38
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03c65ccaab1aaf64fb8018329169772b
+      internalID: 1998635584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e605eee44acd8e647b0fb13c338e5696
+      internalID: -1178401366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_40
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbf912a375b65f84689e6b81c4246ba1
+      internalID: -1363280346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_41
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb639ad0c8bc71409c997cb41eb62f7
+      internalID: -1785121176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_42
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa44d53405bb63b439c9c5f58cfedf24
+      internalID: -2045276083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_43
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8754a549ca02a9145a5efe13f17b6519
+      internalID: -224589806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_44
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1278cba6007067478943eef93cdad71
+      internalID: 844405218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_45
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881b4b61eb0c5834b80b6900334d1831
+      internalID: 375797346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_46
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a36ce7e19e1b2b541b64c907dffb3294
+      internalID: 1459865707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_47
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09541634f9da75e4f822ec838e2e5578
+      internalID: -493804556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24cbbcacef749154fbc93b717c0ab7de
+      internalID: 1756636072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_49
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a33a5424d2298d439b6b0da69dfe948
+      internalID: 1933998749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_50
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29d2ac55a4ae53c4f82b42fb722bff78
+      internalID: -1585146172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_51
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8278c08bb2ddb324a834b88a01cb49f1
+      internalID: -1630392583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_52
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a442d0d9d535c6a4f885e40377a17bd8
+      internalID: 389735451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_53
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a57c1d6a277b004c957842930f87ec2
+      internalID: 775912974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_54
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a3a27da2ff8bd4d8226cc2b827d79e
+      internalID: 1348493597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_55
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 058e123b4cd616347b44f1e1c2e3f283
+      internalID: 1455671675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_56
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5e72236732c5648945d0a6508f2ebc
+      internalID: -1079397695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b56364bc4e7fa47b197b8b35054b59
+      internalID: 1968335026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_58
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4969145179cf9b8489e881ec0d1046f4
+      internalID: -2036172429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_59
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0cd3178981dc424abcb669db05c2b53
+      internalID: 1291579556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_60
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da60fcb1fcc29345a8609b5d8ac3e4b
+      internalID: 1337245349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_61
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21380704f967ff949b3f404fa84edf0c
+      internalID: -832029534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_62
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85646089179aeb0469cb39adfcb58af1
+      internalID: -569295288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_63
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e303ed72f3b8884b8bbbc17fc5aabeb
+      internalID: 85472509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_64
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb82731033e3154c8f4768f6371c651
+      internalID: 995086579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_65
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc35b24a9117f7a4db98bc40b724a119
+      internalID: -216648488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_66
       rect:
         serializedVersion: 2
         x: 0
         y: 448
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -479,41 +1536,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29bbc8b21905e4c448ad5b63ecb9959c
-      internalID: -1126923727
+      spriteID: 267962e8a5613534caa7016afe579646
+      internalID: 1328714483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_17
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 448
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9097b8949498f046a30e4795a950e14
-      internalID: 379495024
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_18
+      name: Free Smoke Fx  Pixel 05_67
       rect:
         serializedVersion: 2
         x: 64
         y: 448
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -521,41 +1557,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f8eb34c6fedd424cbf1b4f598284f8a
-      internalID: 2131693561
+      spriteID: 626d8205e6a87b04ab55238860ac3165
+      internalID: -1467535116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_19
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 448
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54fa2956a0501e643b87d9abfc410c6d
-      internalID: 802148163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_20
+      name: Free Smoke Fx  Pixel 05_68
       rect:
         serializedVersion: 2
         x: 128
         y: 448
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -563,41 +1578,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af4bac6cb55ab1d4ba7dd7a02dc4ccca
-      internalID: 1123254580
+      spriteID: a513706f7595caa4abaecf51bc2bc9ff
+      internalID: -1634067020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_21
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 448
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34c7ce6bf923ee14a8570fa15dd6d296
-      internalID: -2029813313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_22
+      name: Free Smoke Fx  Pixel 05_69
       rect:
         serializedVersion: 2
         x: 192
         y: 448
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -605,41 +1599,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4a2177134e30e746b42fc94f20021a1
-      internalID: -1162483955
+      spriteID: 7fbe7c66d2701254681fc7008a3bcc6a
+      internalID: 1972548832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_23
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 448
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97fd0b292de8bd74b9a3a52612fde99e
-      internalID: -2101711375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_24
+      name: Free Smoke Fx  Pixel 05_70
       rect:
         serializedVersion: 2
         x: 256
         y: 448
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -647,41 +1620,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d76f3215cac0e746928afe26cbabde0
-      internalID: -159891593
+      spriteID: 83f05a63568ea3c4199c9a3dacafbd94
+      internalID: -712312030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_25
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 448
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b9aad8c80b499d49afbbb0e7e0f6da4
-      internalID: 755104071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_26
+      name: Free Smoke Fx  Pixel 05_71
       rect:
         serializedVersion: 2
         x: 320
         y: 448
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -689,41 +1641,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d42629594a6ad645b6727341cba99f1
-      internalID: 1445029480
+      spriteID: 2370399086e43dc40858d053a1d945b0
+      internalID: -103225944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_27
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 448
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0827e631f64c12b4da395a3cdf52df24
-      internalID: 1304449867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_28
+      name: Free Smoke Fx  Pixel 05_72
       rect:
         serializedVersion: 2
         x: 384
         y: 448
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -731,41 +1662,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4c3c7d33b645a64c87f2cc2ad50daed
-      internalID: 2116418233
+      spriteID: 91f634abf763ed74e804bbb53c5935a1
+      internalID: -1839880177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_29
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 448
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 320c2aad9bb0cf94d803d413c6198b4d
-      internalID: -329523581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_30
+      name: Free Smoke Fx  Pixel 05_73
       rect:
         serializedVersion: 2
         x: 448
         y: 448
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -773,20 +1683,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5cce134351a0f944994b783e2706bc0
-      internalID: 230291024
+      spriteID: 0babc73d5d3837a4b8c60810ed4bea4b
+      internalID: -1001736132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_31
+      name: Free Smoke Fx  Pixel 05_74
       rect:
         serializedVersion: 2
-        x: 480
+        x: 512
         y: 448
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -794,356 +1704,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba8a3f14689bd7a42b49a5595f20ac70
-      internalID: 484955662
+      spriteID: e6c9c7209289de340ba7acf2dc56f569
+      internalID: -200967446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_32
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d0a62e6abd827546ae946eea100569b
-      internalID: 2090900655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_33
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88c053a71b9e4104ba26e8a493989631
-      internalID: -1919098385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_34
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2f6cc6e33b53d7439a955c2ae5bb5a9
-      internalID: -47610169
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_35
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec6212454e096ba40bcdf7bb032178a0
-      internalID: 1931468578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_36
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06b43f22044dd3443a98e0fafd99dc84
-      internalID: 1560384760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_37
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a29d17e92a43694a87feda01c23c34c
-      internalID: -1439977866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_38
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4506b9846c4bd44e88acfafc3fa0ea2
-      internalID: -2098348601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_39
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c705861bbd9c5984291a66bc35af8b97
-      internalID: -1293406538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_40
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c7d00b73142c0045a763977abba91c2
-      internalID: -274456877
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_41
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6654fcc15a0bc144b969889d89e26d15
-      internalID: -1837795940
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_42
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58d79b9828ec2fa498ee85b177dee86d
-      internalID: -1296623775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_43
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32e8e1c7c08b26f4fb0dadb074d2d4d4
-      internalID: -164818569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_44
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e07f114c7897964abbd504fef62357a
-      internalID: 975197728
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_45
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32f228ff9f33b59468e5fd19ff533ebd
-      internalID: -1514112417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_46
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11bf060e569f66f4aad5057abcb1708c
-      internalID: 1648444417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_47
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afa287ec6d343174b80d1555209c4544
-      internalID: -2014711151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_48
+      name: Free Smoke Fx  Pixel 05_75
       rect:
         serializedVersion: 2
         x: 0
         y: 384
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1151,41 +1725,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a264af8f66117b4a884067828ade726
-      internalID: 1024803191
+      spriteID: 7b74f8fd64299814d84253b8dcd42dcb
+      internalID: 51180569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_49
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 384
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f28ed215ff610bd4c9dc5c6eb1fd50d2
-      internalID: -364230869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_50
+      name: Free Smoke Fx  Pixel 05_76
       rect:
         serializedVersion: 2
         x: 64
         y: 384
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1193,41 +1746,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ce3a45fbe2333646a6658eaaf5ae761
-      internalID: 1451348750
+      spriteID: fc05813c02d52054ab0fbfb4e8817871
+      internalID: -1918674217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_51
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 384
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a3b99d19ca37574294e4da4a3e758b8
-      internalID: -1258265439
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_52
+      name: Free Smoke Fx  Pixel 05_77
       rect:
         serializedVersion: 2
         x: 128
         y: 384
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1235,41 +1767,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48bdea1c916aae740bca36be356892f4
-      internalID: 556597622
+      spriteID: 9c54b31a3d7be094aa0905117e238ee3
+      internalID: 53590867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_53
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 384
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c96da283268df9e4ba213bace8ad8a00
-      internalID: -675619081
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_54
+      name: Free Smoke Fx  Pixel 05_78
       rect:
         serializedVersion: 2
         x: 192
         y: 384
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1277,41 +1788,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bfc7fc1d63b63149ac69a121c2bb650
-      internalID: -1545550324
+      spriteID: 801bb23e9f3233741a0975c6e02aca63
+      internalID: -965670846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_55
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 384
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d359794c2bf25f94e8a1d0980af2e8a2
-      internalID: -1486044019
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_56
+      name: Free Smoke Fx  Pixel 05_79
       rect:
         serializedVersion: 2
         x: 256
         y: 384
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1319,41 +1809,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b8d2e645f3a582419b5963042eaa574
-      internalID: 1793338373
+      spriteID: 5606c1bb0dd7d2c42a75bdd13809c9a0
+      internalID: -681872112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_57
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 384
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7860bb074e92d374fa2f291ce4df02be
-      internalID: 799082658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_58
+      name: Free Smoke Fx  Pixel 05_80
       rect:
         serializedVersion: 2
         x: 320
         y: 384
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1361,20 +1830,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0905e1fd0048c2a4f81db562a6266924
-      internalID: -74839303
+      spriteID: 1db829f4516c4b34881a0ad7856d2279
+      internalID: -1331252936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_59
+      name: Free Smoke Fx  Pixel 05_81
       rect:
         serializedVersion: 2
         x: 384
         y: 384
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1382,20 +1851,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7943aace5fdd6340b9bbf19c8c870b0
-      internalID: 926121424
+      spriteID: 250c3f5d0eb2e624da6ea188eaa91e23
+      internalID: -1833202931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_60
+      name: Free Smoke Fx  Pixel 05_82
       rect:
         serializedVersion: 2
         x: 448
         y: 384
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1403,20 +1872,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e02d45f46727ee64e8700cae551fd889
-      internalID: 1151269027
+      spriteID: 8cd11a5dd2051d246911c4ccd73d9f54
+      internalID: 1897342614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_61
+      name: Free Smoke Fx  Pixel 05_83
       rect:
         serializedVersion: 2
-        x: 480
+        x: 512
         y: 384
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1424,335 +1893,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7d3c6201ec25984fae5582a60df9cf4
-      internalID: 1113605127
+      spriteID: de5686d1a9627fe48a21d89f753151ce
+      internalID: 919018884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_62
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25cc42d2dfefcae4cb764b9ca90f31ec
-      internalID: -1106185487
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_63
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9f250b3ffa4614348bffd9372d6fbb41
-      internalID: 1147362208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_64
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09268826517f2cf45adc2870d441d185
-      internalID: 1229426201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_65
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 418781e97e8f3554b9d9ca18264a1503
-      internalID: -165645426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_66
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76fd0bb65619e3543844f325a12535a7
-      internalID: 101597851
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_67
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 185e2013ed9f53f4593950eb33743d1d
-      internalID: 96200713
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_68
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f73d111c360a4b4baf9d750b63481c5
-      internalID: -1325417825
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_69
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12149c09c37996c47a37fa7c36688915
-      internalID: 15976401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_70
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9f8de16934228949b8a5d9e5fe95191
-      internalID: -1343508694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_71
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83c7ebd262507ac418fd1b94d5d8e52d
-      internalID: -894225434
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_72
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b503d3f8cfa9c134f98be5e4910cf7ce
-      internalID: 2009100961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_73
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 174c1b31c446ec04f95e1e281525f36d
-      internalID: -2122970005
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_74
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b1f337d1a87ce94b985665fb5bb7006
-      internalID: 2000224760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_75
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d045cdbd30d419549860fdbd3dd20640
-      internalID: -796532484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_76
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 352
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a88d0ef540a6e634a8041535fad7b51f
-      internalID: 383472987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_77
+      name: Free Smoke Fx  Pixel 05_84
       rect:
         serializedVersion: 2
         x: 0
         y: 320
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1760,41 +1914,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b01e269ded7952649bfe420376b65348
-      internalID: 694425395
+      spriteID: 2c485d91b1a5a834b82d8bb36f9d8ae1
+      internalID: -2049150984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_78
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de192122ddfd1e24f960408418f3face
-      internalID: 1282701598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_79
+      name: Free Smoke Fx  Pixel 05_85
       rect:
         serializedVersion: 2
         x: 64
         y: 320
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1802,41 +1935,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3471043913a7901429c4203a8f8603fc
-      internalID: 2036277284
+      spriteID: f7fecfa56db89774c81c7735dd26d63f
+      internalID: 963096916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_80
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 923ab58f5f77550478130fa5988c598d
-      internalID: 2043295538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_81
+      name: Free Smoke Fx  Pixel 05_86
       rect:
         serializedVersion: 2
         x: 128
         y: 320
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1844,41 +1956,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5c2fb8fdf61f054885cb19c1f02a7dc
-      internalID: 515505083
+      spriteID: 91f727ba83e17244a9addaf8e7e5b882
+      internalID: -334607079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_82
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88b3da5380df6694eae9c63c51c2bea0
-      internalID: -905734045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_83
+      name: Free Smoke Fx  Pixel 05_87
       rect:
         serializedVersion: 2
         x: 192
         y: 320
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1886,41 +1977,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3623bdff68d13d47bcdee9369242285
-      internalID: 1199477728
+      spriteID: 0374468e9b7a89241853ff12f18d9e02
+      internalID: 1891826875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_84
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6167c35589c77ef42986f6e5b284b716
-      internalID: 817974663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_85
+      name: Free Smoke Fx  Pixel 05_88
       rect:
         serializedVersion: 2
         x: 256
         y: 320
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1928,41 +1998,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f5367b8c169e324f9ece9bf23f50bea
-      internalID: -1574678144
+      spriteID: 97386ceac38d62341a1229a53d79e60c
+      internalID: -5189561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_86
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8ae33d02b5fe374b80ccf3dff934a3a
-      internalID: 1695783488
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_87
+      name: Free Smoke Fx  Pixel 05_89
       rect:
         serializedVersion: 2
         x: 320
         y: 320
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1970,41 +2019,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ea06166358111542a7b7ca010c0694b
-      internalID: -730908342
+      spriteID: 382fc743cc5593b4b99a8accef7e28b0
+      internalID: 18406554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_88
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84e56acb28da5864da67a308db47827b
-      internalID: 450155646
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_89
+      name: Free Smoke Fx  Pixel 05_90
       rect:
         serializedVersion: 2
         x: 384
         y: 320
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2012,41 +2040,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7800280191cf9584e9c5f86f12cac6ec
-      internalID: -2147407147
+      spriteID: aec77dcb1494ad94c8a8e86757ff0a84
+      internalID: -2034800070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_90
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ea8c5965483761498a19d1d76629466
-      internalID: 862531562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_91
+      name: Free Smoke Fx  Pixel 05_91
       rect:
         serializedVersion: 2
         x: 448
         y: 320
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2054,20 +2061,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55abaaaa741411c42b406574030ee422
-      internalID: -2120266740
+      spriteID: 9d66011a5be0c0c4389996b3efa50bd1
+      internalID: -1771854551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_92
+      name: Free Smoke Fx  Pixel 05_92
       rect:
         serializedVersion: 2
-        x: 480
+        x: 512
         y: 320
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2075,293 +2082,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5b808b3801442d48a2d8c852da35c32
-      internalID: 1794614302
+      spriteID: bfa6b33581595f84b9303812f56e86fc
+      internalID: 505084479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_93
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d61da508ca8a49499c1c437cade1160
-      internalID: 972692589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_94
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63f2755f4fad6a24690268c768f720f7
-      internalID: -667088958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_95
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 257f100ce8225cb419567ac73a096cc9
-      internalID: 1184671778
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_96
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 393ea12d6f8bf034bb9c3d722472e64b
-      internalID: 734259964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_97
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e69f552a429cb0741b7c5d48db742a59
-      internalID: 1313752386
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_98
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b7b4bb8964ac7d459d63a26dda66447
-      internalID: -205998124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_99
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c697c40a4b220b34b856317784b84e7c
-      internalID: 1455659663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_100
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81fa925b92f80334db8f76b77449ce13
-      internalID: -595193817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_101
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c57d7163c704fb9459e848f8f16225bb
-      internalID: 1030437598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_102
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f0710dcfb434f434e8fa904a5089cad5
-      internalID: 1698183851
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_103
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b56f0bfd1bbbe9340a94b79072ce54d5
-      internalID: 1615607513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_104
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a791a1f57e2e33041bd82be925c0473c
-      internalID: 613571122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_105
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 288
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: caae667e05520e549b797a93825b92da
-      internalID: 395815209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_106
+      name: Free Smoke Fx  Pixel 05_93
       rect:
         serializedVersion: 2
         x: 0
         y: 256
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2369,41 +2103,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac4375398a233db4fbc80a6975b99e7d
-      internalID: -461765010
+      spriteID: e164357df2408c24e9f335efe93c187c
+      internalID: -1235450095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_107
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae657d89a79cfc048808f539b73b2a6b
-      internalID: -1297526517
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_108
+      name: Free Smoke Fx  Pixel 05_94
       rect:
         serializedVersion: 2
         x: 64
         y: 256
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2411,41 +2124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69b602f81af457648bb04e79375ec1bc
-      internalID: -582345092
+      spriteID: e7803242117bbcb4c8ca7fc861b0b8d7
+      internalID: 626883021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_109
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0520af2bb289bf34f9c6b76dabbd8b91
-      internalID: 133623770
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_110
+      name: Free Smoke Fx  Pixel 05_95
       rect:
         serializedVersion: 2
         x: 128
         y: 256
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2453,41 +2145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbbbe33f9cfe8894695b76dbc63d39bf
-      internalID: -846754270
+      spriteID: c17ebdd5123dcad469c5b20f759fc75b
+      internalID: -1156934108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_111
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e9772f129cbdec428711751577e7fd8
-      internalID: -1323932286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_112
+      name: Free Smoke Fx  Pixel 05_96
       rect:
         serializedVersion: 2
         x: 192
         y: 256
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2495,41 +2166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b660cd5c0f99c83448a0f887a3332805
-      internalID: -491220719
+      spriteID: 4bdc4d60a3792794da9513b0255f6605
+      internalID: 1618524157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_113
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f8cbdbf37b033c489a4af648a9a8647
-      internalID: -44860632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_114
+      name: Free Smoke Fx  Pixel 05_97
       rect:
         serializedVersion: 2
         x: 256
         y: 256
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2537,251 +2187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d0166e0d68b2e64f9ff61085b512604
-      internalID: -443003209
+      spriteID: 37bbef9cb861c2d43a0da1c56287ce37
+      internalID: -1253235227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_115
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02e22d21a9235384cbdd9e4987083e88
-      internalID: -234724466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_116
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab878fba4d76ae649bbf5c154448006a
-      internalID: 647771183
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_117
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11b3faa07363d354fa5616b96a8161aa
-      internalID: 1054945103
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_118
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a48eb96a51ef13409330e04bb14fc56
-      internalID: -1796551295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_119
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b52988cd4f758d4187f1d80b0692f9a
-      internalID: 472333531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_120
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 914c25151a4f9314f99dbde6332dff91
-      internalID: 655805884
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_121
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58c6a340b8170d9459a50f8f51e35752
-      internalID: -721356418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_122
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e01308b1e3cc4164c8a6c88f61a16b61
-      internalID: -1394835710
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_123
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d4e7cf8006b060428b93731f0fbb54f
-      internalID: 138577905
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_124
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9f1ec7d3b6254c4180e7e66569c59c2
-      internalID: -1210360248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_125
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ddb03a8ef9ffab4ea44491dd2a4a1ce
-      internalID: -601942655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_126
+      name: Free Smoke Fx  Pixel 05_98
       rect:
         serializedVersion: 2
         x: 320
-        y: 224
-        width: 32
-        height: 32
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2789,41 +2208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 931d5b9342a81eb429e2f0ed7a0ecd34
-      internalID: -924952332
+      spriteID: 8fb0c9c948ab12b4e9bb697cb0448c9f
+      internalID: 808908353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_127
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e225147f16de3d14aa0948487d487497
-      internalID: -879362758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_128
+      name: Free Smoke Fx  Pixel 05_99
       rect:
         serializedVersion: 2
         x: 384
-        y: 224
-        width: 32
-        height: 32
+        y: 256
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2831,20 +2229,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a0c8224e4c032d49940fbf4865cff73
-      internalID: -1073931507
+      spriteID: fda4c4e18840c644680b7c7905183a24
+      internalID: 2113616917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_129
+      name: Free Smoke Fx  Pixel 05_100
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48df2cb1d74561f42a303cd6f42a2890
+      internalID: 833621220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_101
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249a2bd28cc5b8448acbae6106a97d0b
+      internalID: -863272006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_102
       rect:
         serializedVersion: 2
         x: 0
         y: 192
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2852,20 +2292,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad20399e6fe28314aa3a3f513fb582a7
-      internalID: 378979285
+      spriteID: d489322cd17e7754ca812f07ddb3d137
+      internalID: -1128534667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_130
+      name: Free Smoke Fx  Pixel 05_103
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 192
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2873,20 +2313,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82fa803da5df73f49897483061955c7d
-      internalID: 1711964113
+      spriteID: 1967a9d2ab196254f84db2c8e0c7913d
+      internalID: -1032342870
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_131
+      name: Free Smoke Fx  Pixel 05_104
       rect:
         serializedVersion: 2
         x: 128
         y: 192
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2894,41 +2334,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcb1f309f08178841890f84dc967d6d5
-      internalID: -698002561
+      spriteID: f9c2e6d2c1f97464591996a10b192eba
+      internalID: -292634130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_132
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0713fd4b458e1804fa008e235617ef82
-      internalID: 1285368602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_133
+      name: Free Smoke Fx  Pixel 05_105
       rect:
         serializedVersion: 2
         x: 192
         y: 192
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2936,41 +2355,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 223b5b098e59c6d4ab43e9a15df8236a
-      internalID: -1335848059
+      spriteID: 8549d269d8f40d64ba8c325eda2927c2
+      internalID: 998883135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_134
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 938b72a7c1ff3494487712c60629bf8c
-      internalID: 2030828109
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_135
+      name: Free Smoke Fx  Pixel 05_106
       rect:
         serializedVersion: 2
         x: 256
         y: 192
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2978,41 +2376,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7719db588ab83842beca016075880de
-      internalID: -1500194640
+      spriteID: 56e8ff90093f58d4d9c9af232ad2314e
+      internalID: 1043727682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_136
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09517aebeb2230643b31e756a68c7924
-      internalID: -322228341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_137
+      name: Free Smoke Fx  Pixel 05_107
       rect:
         serializedVersion: 2
         x: 320
         y: 192
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3020,41 +2397,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f92d595c95a0704f93db24645e05851
-      internalID: -1357854321
+      spriteID: e1cd1e8e437c4e34f97e5f39229fb22f
+      internalID: -1459900365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_138
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 192
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 175463f014129254da5ac99154e0ac88
-      internalID: -772064600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_139
+      name: Free Smoke Fx  Pixel 05_108
       rect:
         serializedVersion: 2
         x: 384
         y: 192
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3062,20 +2418,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ba6f2942e5ec944180ba4d74d13aa6e
-      internalID: 1834390334
+      spriteID: 901a7a9abdea04247bc802c74fc128a6
+      internalID: -2126583015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_140
+      name: Free Smoke Fx  Pixel 05_109
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
-        width: 32
-        height: 32
+        x: 448
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3083,20 +2439,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3dcbb2d9ae0833449d736e7639db364
-      internalID: -258924835
+      spriteID: 6a9d4db71538183449fd04e020e600ad
+      internalID: -1998259335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_141
+      name: Free Smoke Fx  Pixel 05_110
       rect:
         serializedVersion: 2
-        x: 32
-        y: 160
-        width: 32
-        height: 32
+        x: 512
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3104,209 +2460,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5647c34aaa704f40addc00b158936d9
-      internalID: 416317968
+      spriteID: 46012b7246d0ee340bbd398345dc3053
+      internalID: 1812450644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_142
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea5d575738f80164ba0d261a18f2d136
-      internalID: -206224717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_143
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 442724efa443057448862c8080ee49ff
-      internalID: -1126343630
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_144
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b9f9c28f43546e4799a303ffbcc305d
-      internalID: 357642273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_145
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 906b8843b16286f499a6cc7a5b08771d
-      internalID: -978440842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_146
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9d99e3d5fce34f4d9ba39aa9063d58b
-      internalID: -228106566
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_147
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b2a3bddd1a419b46ba4b4932ee0112d
-      internalID: -1794475680
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_148
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0c707a8b1bb0e34a80d43cfc1036f0c
-      internalID: -715397846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_149
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5db99acf0698724d82b51277fea29f2
-      internalID: 779621338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_150
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c49a5168e47773241970a775b95596ee
-      internalID: 922535076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_151
+      name: Free Smoke Fx  Pixel 05_111
       rect:
         serializedVersion: 2
         x: 0
         y: 128
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3314,20 +2481,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02a1b077ee5b0fb46a52080bd7be94d8
-      internalID: 34150509
+      spriteID: 66d03850f2c4f4841bc5e6a14cf8d971
+      internalID: 1108358856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_152
+      name: Free Smoke Fx  Pixel 05_112
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 128
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3335,20 +2502,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65b35231dc68a0a44b8f34ddc7517384
-      internalID: -1952727653
+      spriteID: 4bcfc6fc4f6a44242a68855a2d56c29a
+      internalID: 556313432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_153
+      name: Free Smoke Fx  Pixel 05_113
       rect:
         serializedVersion: 2
         x: 128
         y: 128
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3356,41 +2523,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b71a6c18fb717b941a51c261d82ee73a
-      internalID: -1960633312
+      spriteID: 9496db012025a944382aebf4a298d0d8
+      internalID: -1357841406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_154
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1703cc6c098265489e60a1b69f24bd9
-      internalID: -1556653501
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_155
+      name: Free Smoke Fx  Pixel 05_114
       rect:
         serializedVersion: 2
         x: 192
         y: 128
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3398,41 +2544,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ceef087ac186815469b7d4cad6b11eb3
-      internalID: 719335699
+      spriteID: 4c4448240d2e4b14aacc536762d810c4
+      internalID: -1027512768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_156
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7dac984556bc39c42af77b2636aa30f1
-      internalID: 357840743
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_157
+      name: Free Smoke Fx  Pixel 05_115
       rect:
         serializedVersion: 2
         x: 256
         y: 128
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3440,41 +2565,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 431f9bcfa3484e9408dffbf9cbd40299
-      internalID: -1265256590
+      spriteID: 20716f6c31de66040a54255a47e35cd7
+      internalID: 1474707109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_158
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d10aebf6d2eec6a4cb6532df9635d215
-      internalID: -1882772111
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_159
+      name: Free Smoke Fx  Pixel 05_116
       rect:
         serializedVersion: 2
         x: 320
         y: 128
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3482,41 +2586,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55be1a26199cb1f41a2af6a5f900411e
-      internalID: -358441870
+      spriteID: 1d60639c404e8ac48806391e5c65eeec
+      internalID: 7585196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_tiles_160
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e902514a9028cb040b82179724f2e190
-      internalID: 2017031573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_tiles_161
+      name: Free Smoke Fx  Pixel 05_117
       rect:
         serializedVersion: 2
         x: 384
         y: 128
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3524,8 +2607,407 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f98f21a9c8fa32644acb8ec4e02b870d
-      internalID: -1475495227
+      spriteID: 256c263cee560c44b8d4802de1959325
+      internalID: 327118829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_118
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23de03eeb9da5fb43b272bd41c3e690b
+      internalID: 1721910231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_119
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ba429e2770e204bbe3990b29eaecee
+      internalID: -1446795927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97cc69a921b77c438d8c2debd4b5a98
+      internalID: 693201510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_121
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d95c98e97e04f5042b89ef08c365fad6
+      internalID: 453177880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_122
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89006e14bb649684fab5d88130d4a423
+      internalID: 688809835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_123
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c7a5a32cc9b534e8d07baec1f442c8
+      internalID: -1004358071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_124
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755cde6f4b8a3224fa0a4ed69a3dfe9c
+      internalID: 2116171621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_125
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aeb65c88d5056443882ff27ab3fcd8f
+      internalID: -533512407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_126
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8a222dda08ea9047af915224bc9b711
+      internalID: -1286163273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_127
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa1880be61e0b345ad68f222087e081
+      internalID: -748824502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_128
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec5d38e3b7bfec4394707e042c18ac3
+      internalID: 2043738480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_129
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38fce75b072b1194e9bebba6b2142c5a
+      internalID: -493331622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_130
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d380ef55f8221d4d83a71e33c2da5e5
+      internalID: 1048680744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_131
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c55ddeb7eba0e940920c7bfbadbc3a5
+      internalID: 1332341596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_132
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa93a005aa8502e41bfe4da790b11a0f
+      internalID: 94431549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_133
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab13c897c9366d740abb7e6ec518d0f7
+      internalID: 2004162402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_134
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe361b0714d2b54eafd14ef095d9907
+      internalID: 647096763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_135
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc178d46646a2dc42a8bdc2e42a2904d
+      internalID: -2033944471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Free Smoke Fx  Pixel 05_136
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c18b614b74348f54d83685d7081ac07a
+      internalID: 2068250682
       vertices: []
       indices: 
       edges: []
@@ -3541,171 +3023,145 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      forest_tiles_138: -772064600
-      forest_tiles_160: 2017031573
-      forest_tiles_68: -1325417825
-      forest_tiles_11: 865054826
-      forest_tiles_49: -364230869
-      forest_tiles_43: -164818569
-      forest_tiles_58: -74839303
-      forest_tiles_134: 2030828109
-      forest_tiles_161: -1475495227
-      forest_tiles_125: -601942655
-      forest_tiles_105: 395815209
-      forest_tiles_17: 379495024
-      forest_tiles_78: 1282701598
-      forest_tiles_121: -721356418
-      forest_tiles_61: 1113605127
-      forest_tiles_23: -2101711375
-      forest_tiles_32: 2090900655
-      forest_tiles_27: 1304449867
-      forest_tiles_85: -1574678144
-      forest_tiles_72: 2009100961
-      forest_tiles_83: 1199477728
-      forest_tiles_103: 1615607513
-      forest_tiles_104: 613571122
-      forest_tiles_156: 357840743
-      forest_tiles_9: -1863420045
-      forest_tiles_106: -461765010
-      forest_tiles_148: -715397846
-      forest_tiles_10: 1057856540
-      forest_tiles_129: 378979285
-      forest_tiles_133: -1335848059
-      forest_tiles_33: -1919098385
-      forest_tiles_1: 1067696104
-      forest_tiles_154: -1556653501
-      forest_tiles_93: 972692589
-      forest_tiles_143: -1126343630
-      forest_tiles_155: 719335699
-      forest_tiles_55: -1486044019
-      forest_tiles_110: -846754270
-      forest_tiles_114: -443003209
-      forest_tiles_41: -1837795940
-      forest_tiles_81: 515505083
-      forest_tiles_96: 734259964
-      forest_tiles_145: -978440842
-      forest_tiles_127: -879362758
-      forest_tiles_151: 34150509
-      forest_tiles_56: 1793338373
-      forest_tiles_73: -2122970005
-      forest_tiles_130: 1711964113
-      forest_tiles_118: -1796551295
-      forest_tiles_65: -165645426
-      forest_tiles_149: 779621338
-      forest_tiles_141: 416317968
-      forest_tiles_152: -1952727653
-      forest_tiles_101: 1030437598
-      forest_tiles_22: -1162483955
-      forest_tiles_30: 230291024
-      forest_tiles_26: 1445029480
-      forest_tiles_76: 383472987
-      forest_tiles_34: -47610169
-      forest_tiles_97: 1313752386
-      forest_tiles_119: 472333531
-      forest_tiles_64: 1229426201
-      forest_tiles_31: 484955662
-      forest_tiles_63: 1147362208
-      forest_tiles_21: -2029813313
-      forest_tiles_7: -469681044
-      forest_tiles_60: 1151269027
-      forest_tiles_20: 1123254580
-      forest_tiles_77: 694425395
-      forest_tiles_146: -228106566
-      forest_tiles_94: -667088958
-      forest_tiles_140: -258924835
-      forest_tiles_12: -855100572
-      forest_tiles_75: -796532484
-      forest_tiles_19: 802148163
-      forest_tiles_88: 450155646
-      forest_tiles_153: -1960633312
-      forest_tiles_158: -1882772111
-      forest_tiles_3: -1175727186
-      forest_tiles_139: 1834390334
-      forest_tiles_102: 1698183851
-      forest_tiles_13: -1285133753
-      forest_tiles_53: -675619081
-      forest_tiles_28: 2116418233
-      forest_tiles_24: -159891593
-      forest_tiles_113: -44860632
-      forest_tiles_66: 101597851
-      forest_tiles_84: 817974663
-      forest_tiles_80: 2043295538
-      forest_tiles_89: -2147407147
-      forest_tiles_87: -730908342
-      forest_tiles_36: 1560384760
-      forest_tiles_115: -234724466
-      forest_tiles_124: -1210360248
-      forest_tiles_71: -894225434
-      forest_tiles_120: 655805884
-      forest_tiles_51: -1258265439
-      forest_tiles_108: -582345092
-      forest_tiles_5: -655818913
-      forest_tiles_147: -1794475680
-      forest_tiles_128: -1073931507
-      forest_tiles_98: -205998124
-      forest_tiles_150: 922535076
-      forest_tiles_48: 1024803191
-      forest_tiles_14: -731926199
-      forest_tiles_16: -1126923727
-      forest_tiles_2: -889734011
-      forest_tiles_15: -364255266
-      forest_tiles_82: -905734045
-      forest_tiles_40: -274456877
-      forest_tiles_137: -1357854321
-      forest_tiles_50: 1451348750
-      forest_tiles_52: 556597622
-      forest_tiles_95: 1184671778
-      forest_tiles_0: -920125497
-      forest_tiles_8: -1017939169
-      forest_tiles_59: 926121424
-      forest_tiles_38: -2098348601
-      forest_tiles_47: -2014711151
-      forest_tiles_69: 15976401
-      forest_tiles_29: -329523581
-      forest_tiles_57: 799082658
-      forest_tiles_117: 1054945103
-      forest_tiles_136: -322228341
-      forest_tiles_109: 133623770
-      forest_tiles_91: -2120266740
-      forest_tiles_112: -491220719
-      forest_tiles_92: 1794614302
-      forest_tiles_131: -698002561
-      forest_tiles_35: 1931468578
-      forest_tiles_99: 1455659663
-      forest_tiles_144: 357642273
-      forest_tiles_74: 2000224760
-      forest_tiles_6: 1536891336
-      forest_tiles_142: -206224717
-      forest_tiles_44: 975197728
-      forest_tiles_132: 1285368602
-      forest_tiles_157: -1265256590
-      forest_tiles_46: 1648444417
-      forest_tiles_122: -1394835710
-      forest_tiles_107: -1297526517
-      forest_tiles_39: -1293406538
-      forest_tiles_25: 755104071
-      forest_tiles_18: 2131693561
-      forest_tiles_86: 1695783488
-      forest_tiles_116: 647771183
-      forest_tiles_159: -358441870
-      forest_tiles_111: -1323932286
-      forest_tiles_62: -1106185487
-      forest_tiles_45: -1514112417
-      forest_tiles_37: -1439977866
-      forest_tiles_126: -924952332
-      forest_tiles_70: -1343508694
-      forest_tiles_4: 2052963657
-      forest_tiles_67: 96200713
-      forest_tiles_42: -1296623775
-      forest_tiles_135: -1500194640
-      forest_tiles_54: -1545550324
-      forest_tiles_79: 2036277284
-      forest_tiles_100: -595193817
-      forest_tiles_90: 862531562
-      forest_tiles_123: 138577905
-  spritePackingTag: 
+      Free Smoke Fx  Pixel 05_0: -607522193
+      Free Smoke Fx  Pixel 05_1: -1482955852
+      Free Smoke Fx  Pixel 05_10: 1818464562
+      Free Smoke Fx  Pixel 05_100: 833621220
+      Free Smoke Fx  Pixel 05_101: -863272006
+      Free Smoke Fx  Pixel 05_102: -1128534667
+      Free Smoke Fx  Pixel 05_103: -1032342870
+      Free Smoke Fx  Pixel 05_104: -292634130
+      Free Smoke Fx  Pixel 05_105: 998883135
+      Free Smoke Fx  Pixel 05_106: 1043727682
+      Free Smoke Fx  Pixel 05_107: -1459900365
+      Free Smoke Fx  Pixel 05_108: -2126583015
+      Free Smoke Fx  Pixel 05_109: -1998259335
+      Free Smoke Fx  Pixel 05_11: -1072901194
+      Free Smoke Fx  Pixel 05_110: 1812450644
+      Free Smoke Fx  Pixel 05_111: 1108358856
+      Free Smoke Fx  Pixel 05_112: 556313432
+      Free Smoke Fx  Pixel 05_113: -1357841406
+      Free Smoke Fx  Pixel 05_114: -1027512768
+      Free Smoke Fx  Pixel 05_115: 1474707109
+      Free Smoke Fx  Pixel 05_116: 7585196
+      Free Smoke Fx  Pixel 05_117: 327118829
+      Free Smoke Fx  Pixel 05_118: 1721910231
+      Free Smoke Fx  Pixel 05_119: -1446795927
+      Free Smoke Fx  Pixel 05_12: 1744699506
+      Free Smoke Fx  Pixel 05_120: 693201510
+      Free Smoke Fx  Pixel 05_121: 453177880
+      Free Smoke Fx  Pixel 05_122: 688809835
+      Free Smoke Fx  Pixel 05_123: -1004358071
+      Free Smoke Fx  Pixel 05_124: 2116171621
+      Free Smoke Fx  Pixel 05_125: -533512407
+      Free Smoke Fx  Pixel 05_126: -1286163273
+      Free Smoke Fx  Pixel 05_127: -748824502
+      Free Smoke Fx  Pixel 05_128: 2043738480
+      Free Smoke Fx  Pixel 05_129: -493331622
+      Free Smoke Fx  Pixel 05_13: -1587063187
+      Free Smoke Fx  Pixel 05_130: 1048680744
+      Free Smoke Fx  Pixel 05_131: 1332341596
+      Free Smoke Fx  Pixel 05_132: 94431549
+      Free Smoke Fx  Pixel 05_133: 2004162402
+      Free Smoke Fx  Pixel 05_134: 647096763
+      Free Smoke Fx  Pixel 05_135: -2033944471
+      Free Smoke Fx  Pixel 05_136: 2068250682
+      Free Smoke Fx  Pixel 05_14: 1077331373
+      Free Smoke Fx  Pixel 05_15: 691877748
+      Free Smoke Fx  Pixel 05_16: 471646994
+      Free Smoke Fx  Pixel 05_17: -1083686118
+      Free Smoke Fx  Pixel 05_18: 1321220206
+      Free Smoke Fx  Pixel 05_19: 1784507364
+      Free Smoke Fx  Pixel 05_2: -1091764838
+      Free Smoke Fx  Pixel 05_20: 1416277130
+      Free Smoke Fx  Pixel 05_21: 1257985436
+      Free Smoke Fx  Pixel 05_22: 90024570
+      Free Smoke Fx  Pixel 05_23: -1540941141
+      Free Smoke Fx  Pixel 05_24: 2071539902
+      Free Smoke Fx  Pixel 05_25: -1032650571
+      Free Smoke Fx  Pixel 05_26: -280324010
+      Free Smoke Fx  Pixel 05_27: 1340268875
+      Free Smoke Fx  Pixel 05_28: 2039255453
+      Free Smoke Fx  Pixel 05_29: 262913366
+      Free Smoke Fx  Pixel 05_3: 678131367
+      Free Smoke Fx  Pixel 05_30: 47330958
+      Free Smoke Fx  Pixel 05_31: -811494028
+      Free Smoke Fx  Pixel 05_32: -1624349146
+      Free Smoke Fx  Pixel 05_33: 388512977
+      Free Smoke Fx  Pixel 05_34: 1450481174
+      Free Smoke Fx  Pixel 05_35: -77513274
+      Free Smoke Fx  Pixel 05_36: -955852836
+      Free Smoke Fx  Pixel 05_37: 1709900182
+      Free Smoke Fx  Pixel 05_38: 1998635584
+      Free Smoke Fx  Pixel 05_39: -1178401366
+      Free Smoke Fx  Pixel 05_4: -1156476493
+      Free Smoke Fx  Pixel 05_40: -1363280346
+      Free Smoke Fx  Pixel 05_41: -1785121176
+      Free Smoke Fx  Pixel 05_42: -2045276083
+      Free Smoke Fx  Pixel 05_43: -224589806
+      Free Smoke Fx  Pixel 05_44: 844405218
+      Free Smoke Fx  Pixel 05_45: 375797346
+      Free Smoke Fx  Pixel 05_46: 1459865707
+      Free Smoke Fx  Pixel 05_47: -493804556
+      Free Smoke Fx  Pixel 05_48: 1756636072
+      Free Smoke Fx  Pixel 05_49: 1933998749
+      Free Smoke Fx  Pixel 05_5: -727484054
+      Free Smoke Fx  Pixel 05_50: -1585146172
+      Free Smoke Fx  Pixel 05_51: -1630392583
+      Free Smoke Fx  Pixel 05_52: 389735451
+      Free Smoke Fx  Pixel 05_53: 775912974
+      Free Smoke Fx  Pixel 05_54: 1348493597
+      Free Smoke Fx  Pixel 05_55: 1455671675
+      Free Smoke Fx  Pixel 05_56: -1079397695
+      Free Smoke Fx  Pixel 05_57: 1968335026
+      Free Smoke Fx  Pixel 05_58: -2036172429
+      Free Smoke Fx  Pixel 05_59: 1291579556
+      Free Smoke Fx  Pixel 05_6: 1895421408
+      Free Smoke Fx  Pixel 05_60: 1337245349
+      Free Smoke Fx  Pixel 05_61: -832029534
+      Free Smoke Fx  Pixel 05_62: -569295288
+      Free Smoke Fx  Pixel 05_63: 85472509
+      Free Smoke Fx  Pixel 05_64: 995086579
+      Free Smoke Fx  Pixel 05_65: -216648488
+      Free Smoke Fx  Pixel 05_66: 1328714483
+      Free Smoke Fx  Pixel 05_67: -1467535116
+      Free Smoke Fx  Pixel 05_68: -1634067020
+      Free Smoke Fx  Pixel 05_69: 1972548832
+      Free Smoke Fx  Pixel 05_7: -550746598
+      Free Smoke Fx  Pixel 05_70: -712312030
+      Free Smoke Fx  Pixel 05_71: -103225944
+      Free Smoke Fx  Pixel 05_72: -1839880177
+      Free Smoke Fx  Pixel 05_73: -1001736132
+      Free Smoke Fx  Pixel 05_74: -200967446
+      Free Smoke Fx  Pixel 05_75: 51180569
+      Free Smoke Fx  Pixel 05_76: -1918674217
+      Free Smoke Fx  Pixel 05_77: 53590867
+      Free Smoke Fx  Pixel 05_78: -965670846
+      Free Smoke Fx  Pixel 05_79: -681872112
+      Free Smoke Fx  Pixel 05_8: 280695413
+      Free Smoke Fx  Pixel 05_80: -1331252936
+      Free Smoke Fx  Pixel 05_81: -1833202931
+      Free Smoke Fx  Pixel 05_82: 1897342614
+      Free Smoke Fx  Pixel 05_83: 919018884
+      Free Smoke Fx  Pixel 05_84: -2049150984
+      Free Smoke Fx  Pixel 05_85: 963096916
+      Free Smoke Fx  Pixel 05_86: -334607079
+      Free Smoke Fx  Pixel 05_87: 1891826875
+      Free Smoke Fx  Pixel 05_88: -5189561
+      Free Smoke Fx  Pixel 05_89: 18406554
+      Free Smoke Fx  Pixel 05_9: -426181931
+      Free Smoke Fx  Pixel 05_90: -2034800070
+      Free Smoke Fx  Pixel 05_91: -1771854551
+      Free Smoke Fx  Pixel 05_92: 505084479
+      Free Smoke Fx  Pixel 05_93: -1235450095
+      Free Smoke Fx  Pixel 05_94: 626883021
+      Free Smoke Fx  Pixel 05_95: -1156934108
+      Free Smoke Fx  Pixel 05_96: 1618524157
+      Free Smoke Fx  Pixel 05_97: -1253235227
+      Free Smoke Fx  Pixel 05_98: 808908353
+      Free Smoke Fx  Pixel 05_99: 2113616917
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
