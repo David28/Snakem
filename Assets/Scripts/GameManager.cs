@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public float timer = 0;
     public float matchTime = 60*3; //3 minutes
     private TMP_Text timerText;
-    private Slider appleSlider;
+    public Slider appleSlider;
     public bool hasStarted = false;
     public bool inMenu = true;
 
@@ -43,15 +43,16 @@ public class GameManager : MonoBehaviour
             return;
         }else
             round++;
-        Debug.Log("YO im starting round " + round);
         //get everything
         apple = GameObject.Find("Apples");
         snake = GameObject.Find("Snake");
+        
         snakeMovement = snake.GetComponent<SnakeMovement>();
         appleController = apple.GetComponent<AppleController>();
+        
         timerText = GameObject.Find("Timer").GetComponent<TMP_Text>();
         strawberry = GameObject.Find("Strawberry");
-        appleSlider = GameObject.Find("Apple Headshot").GetComponent<Slider>();
+        appleSlider = GameObject.Find("Player "+apple.GetComponent<AppleController>().player+" Headshot").GetComponent<Slider>();
 
         timerText.text = "3:00";
         timer = matchTime;
@@ -65,7 +66,11 @@ public class GameManager : MonoBehaviour
             snakeMovement.ChangePlayer();
             appleController.ChangePlayer();
         }
+        appleController.SetHeadshotSprite("Apple Headshot");
+        snakeMovement.SetHeadshotSprite("Snake Headshot");
     }
+
+  
 
     // Update is called once per frame
     void Update()
@@ -145,7 +150,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private float appleRespawnTimer;
+    public float appleRespawnTimer;
     public void SpawnApple()
     {
         appleController.Respawn();
@@ -209,4 +214,6 @@ public class GameManager : MonoBehaviour
             LoadGame();
         }
     }
+
+
 }

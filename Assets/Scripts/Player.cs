@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
+
+
     public int player = 0;
 
     public void ChangePlayer() {
@@ -18,6 +20,12 @@ public class Player : MonoBehaviour
             return new Vector2(Input.GetAxisRaw("Horizontal2"), Input.GetAxisRaw("Vertical2"));
     }
 
+    public bool GetApplePower() {
+        if (player == 0)
+            return Input.GetKeyDown(KeyCode.K);
+        else
+            return Input.GetKeyDown(KeyCode.Q);
+    }
     public Vector2 GetSnakeInput() {
         if (player == 0){
             if (Input.GetKeyDown(KeyCode.W)) {
@@ -56,5 +64,12 @@ public class Player : MonoBehaviour
             return Input.GetKeyDown(KeyCode.E);
         else
             return Input.GetKeyDown(KeyCode.L);
+    }
+
+    public void SetHeadshotSprite(string spriteName) {
+        Debug.Log("Player "+player+" Headshot");
+        Debug.Log(GameObject.Find("Player "+player+" Headshot"));
+        Debug.Log(Resources.Load<Sprite>("Sprites/"+spriteName));
+        GameObject.Find("Player "+player+" Headshot").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/"+spriteName);
     }
 }

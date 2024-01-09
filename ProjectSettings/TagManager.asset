@@ -7,6 +7,7 @@ TagManager:
   - Strawberry
   - Snake
   - Apple
+  - Obstacle
   layers:
   - Default
   - TransparentFX

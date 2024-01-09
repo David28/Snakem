@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class SnakeMovement : Player
 {
-     
     void Start() 
     {
         //set all rotations to 0
@@ -51,7 +50,7 @@ public class SnakeMovement : Player
             //spend 1 strawberry to get a boost
             if (ate > 0){
                 ate--;
-                GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(ate);
+                GameObject.Find("Player "+this.player +" Stomach").GetComponent<StomachController>().setStomach(ate);
                 if (boost == 0)
                     this.GetComponent<Animator>().SetBool("Boosting", true);
                 boost = boostValue;
@@ -80,28 +79,7 @@ public class SnakeMovement : Player
         
         //check if head is gonna hit a body part or the wall
         Vector3 nextPos = transform.position + newDirection;
-        if (nextPos.x >= 5.5 || nextPos.x <= -5.5 || nextPos.y >= 5.5 || nextPos.y <= -5.5)
-        {
-            //hit the wall
-            Debug.Log("Hit the wall");
-            startMiniGame();
-            fixRotationFromSideImpact(transform.position, nextPos);
-            return;
-        }
-        else
-        {
-            for (int i = 0; i < bodyParts.Count; i++)
-            {
-                if (nextPos == bodyParts[i].transform.position)
-                {
-                    //hit a body part
-                    Debug.Log("Hit a body part");
-                    fixRotationFromSideImpact(transform.position, bodyParts[i].transform.position);
-                    startMiniGame();
-                    return;
-                }
-            }
-        }
+        if (CheckColisions(nextPos)) return;
 
         Vector2 oldHeadPos = transform.position;
         Vector2 oldDirection = newDirection;
@@ -123,7 +101,7 @@ public class SnakeMovement : Player
             g.gameObject.GetComponent<BodyPartMovement>().Start();
             g.gameObject.GetComponent<BodyPartMovement>().direction = tail.GetComponent<BodyPartMovement>().direction;
             ate -= 3;
-            GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(Mathf.Min(ate,3));
+            GameObject.Find("Player "+this.player +" Stomach").GetComponent<StomachController>().setStomach(Mathf.Min(ate,3));
 
             GameObject.FindObjectOfType<GameManager>().AddPoint(this.player);
         }
@@ -136,6 +114,78 @@ public class SnakeMovement : Player
         
         direction = newDirection;
         SetNextDirection(direction);
+    }
+
+    private bool CheckColisions(Vector3 nextPos)
+    {
+        
+        if (nextPos.x >= 5.5 || nextPos.x <= -5.5 || nextPos.y >= 5.5 || nextPos.y <= -5.5)
+        {
+            //hit the wall
+            Debug.Log("Hit the wall");
+            startMiniGame();
+            fixRotationFromSideImpact(transform.position, nextPos);
+            return true;
+        }
+        else
+        {
+            for (int i = 0; i < bodyParts.Count; i++)
+            {
+                if (nextPos == bodyParts[i].transform.position)
+                {
+                    //hit a body part
+                    Debug.Log("Hit a body part");
+                    fixRotationFromSideImpact(transform.position, bodyParts[i].transform.position);
+                    startMiniGame();
+                    return true;
+                }
+            }
+
+            //check for apple created obstacles
+            GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+            for (int i = 0; i < obstacles.Length; i++)
+            {
+                //need to put obtacle in refence to snake parent
+                if (nextPos == obstacles[i].transform.position)
+                {
+                    //hit an obstacle
+                    if (boost > 0.0f){
+                        DestroyObstacle(obstacles[i]);
+                        return false;
+                    }
+                    Debug.Log("Hit an obstacle");
+                    fixRotationFromSideImpact(transform.position, obstacles[i].transform.position);
+                    startMiniGame();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public GameObject rockSmashEffect;
+    private void DestroyObstacle(GameObject gameObject)
+    {
+        // Calculate the angle of collision
+        Vector2 collisionDirection = (Vector2)gameObject.transform.position - (Vector2)transform.position;
+        float collisionAngle = Mathf.Atan2(collisionDirection.y, collisionDirection.x);
+        // Instantiate and configure the rockSmashEffect particle system at the asteroid's position
+        GameObject effect = Instantiate(rockSmashEffect, transform.position, Quaternion.identity);
+        var particleSystem = effect.GetComponent<ParticleSystem>();
+        var mainModule = particleSystem.main;
+        // Set the cone emission angle based on the collision angle
+        effect.transform.rotation = Quaternion.Euler(collisionAngle * Mathf.Rad2Deg,-90,0);
+
+        // Enable the game object
+        effect.SetActive(true);
+
+        // Play the particle system
+        particleSystem.Play();
+
+        // Destroy the particle system after its duration
+        Destroy(effect, mainModule.duration);
+
+        // Destroy this obstacle
+        Destroy(gameObject);
     }
 
     private Quaternion getRotationFromDirection(Vector3 newDirection)
@@ -183,7 +233,7 @@ public class SnakeMovement : Player
                 Destroy(strawberries[i]);
                 GameObject.Find("GameManager").GetComponent<GameManager>().SpawnStrawberry();
                 ate++;
-                GameObject.Find("Snake Stomach").GetComponent<StomachController>().setStomach(ate);
+                GameObject.Find("Player "+this.player +" Stomach").GetComponent<StomachController>().setStomach(ate);
             }
         }
     }
@@ -245,7 +295,7 @@ public class SnakeMovement : Player
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Apple")
+        if (collision.gameObject.tag == "Apple" && stunTimer == -1.0f)
         {
             ate+=3;
             GameObject.FindObjectOfType<GameManager>().SetAppleRespawnTimer();
