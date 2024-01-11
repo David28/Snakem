@@ -295,7 +295,7 @@ public class SnakeMovement : Player
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Apple" && stunTimer == -1.0f)
+        if (collision.gameObject.name == "Apples" && stunTimer == -1.0f)
         {
             ate+=3;
             GameObject.FindObjectOfType<GameManager>().SetAppleRespawnTimer();
@@ -319,7 +319,7 @@ public class SnakeMovement : Player
     }
 
     public GameObject minusAnim;
-    internal void DestroyBodyPart()
+    public void DestroyBodyPart(bool stopStun = false)
     {
         Debug.Log("Destroying body part");
         if (bodyParts.Count <= 2)
@@ -331,8 +331,8 @@ public class SnakeMovement : Player
         this.transform.position = neck.transform.position;
         Vector2 direction = neck.transform.position - bodyParts[0].transform.position;
         Destroy(neck);
-
-        endStun();
+        if (stopStun)
+            endStun();
         this.transform.rotation = getRotationFromDirection(direction);
         SetNextDirection(this.newDirection);
         GameObject.FindObjectOfType<GameManager>().RemovePoint(this.player);

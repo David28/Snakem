@@ -10,7 +10,7 @@ public class AppleController : Player
    float horizontal;
    float vertical;
    float moveLimiter = 0.7f;
-   int ate = 0;
+   public int ate = 0;
    public float runSpeed = 20.0f;
    private SpriteRenderer spriteRenderer;
    void Start()
@@ -20,11 +20,11 @@ public class AppleController : Player
    }
 
    public Vector2 shootDirection = new Vector2(1, 0);
+
    public bool amDead = false;
 
    private Vector2 input;
 
-   private int buildBlocks = 0;
 
    void Update()
    {
@@ -33,19 +33,15 @@ public class AppleController : Player
       input = GetAppleInput();
       horizontal = input.x;
       vertical = input.y;
-      if (GetAppleAction())
-      {
-         Debug.Log("Fire1");
-         spit();
-      }
+      
       if (amDead)
       {
          return;
       }
-      if (GetApplePower())
+      if (GetAppleAction())
       {
-         Debug.Log("Fire2");
-         Build();
+         Debug.Log("Fire1");
+         spit();
       }
       if (horizontal != 0)
       {
@@ -105,34 +101,19 @@ public class AppleController : Player
 
    public GameObject spitPrefab;
    private int currentState = 0;
-   public float blastRadius = 0.4f;
    void spit()
    {
       if (ate == 0)
       {
          return;
       }
-      if (amDead)
-      {
-         //new effect blast into the ground if it hits the snake stun it
-         ate--;
-         GameObject.Find("Player " + this.player + " Stomach").GetComponent<StomachController>().setStomach(ate);
-         //check if was above snake
-         GameObject snake = GameObject.Find("Snake");
-         if (Math.Abs(snake.transform.position.x - this.transform.position.x) < blastRadius && Math.Abs(snake.transform.position.y - this.transform.position.y) < blastRadius)
-         {
-            snake.GetComponent<SnakeMovement>().startMiniGame();
-         }
-         this.GetComponent<Animator>().SetTrigger("Blast");
-
-         return;
-      }
+     
 
       GameObject spit = Instantiate(spitPrefab, transform.position + ((Vector3)shootDirection) * 0.3f, Quaternion.identity);
       spit.GetComponent<SpitController>().direction = shootDirection;
       spit.SetActive(true);
-      ate--;
-      GameObject.Find("Player " + this.player + " Stomach").GetComponent<StomachController>().setStomach(ate);
+      
+      SetAte(ate - 1);
    }
 
    void FixedUpdate()
@@ -148,18 +129,7 @@ public class AppleController : Player
 
    }
 
-   public GameObject blockPrefab;
-   private void Build()
-   {
-      if (buildBlocks == 0) return;
-      buildBlocks--;
-      Vector3 spawnPosition = transform.position;
-      //make sure it is in the middle of the grid should be .5
-      spawnPosition.x = Mathf.Round(spawnPosition.x) - 0.5f;
-      spawnPosition.y = Mathf.Round(spawnPosition.y) - 0.5f;
-
-      Instantiate(blockPrefab, spawnPosition, Quaternion.identity);
-   }
+   
 
 
    void OnCollisionEnter2D(Collision2D other)
@@ -168,15 +138,12 @@ public class AppleController : Player
       Debug.Log("Collision");
       if (other.gameObject.CompareTag("Strawberry"))
       {
-         ate++;
-         if (ate == 3)
-         {
-            ate = 0;
-            buildBlocks++;
-         }
          Destroy(other.gameObject);
          GameObject.Find("GameManager").GetComponent<GameManager>().SpawnStrawberry();
-         GameObject.Find("Player " + this.player + " Stomach").GetComponent<StomachController>().setStomach(ate);
+
+         if (ate >= 3) return;
+
+         SetAte(ate + 1);
       }
 
    }
@@ -188,6 +155,11 @@ public class AppleController : Player
       this.transform.position = new Vector3();
       this.GetComponent<CapsuleCollider2D>().enabled = false;
       amDead = true;
+      //Set my children to inactive
+      foreach (Transform child in transform)
+      {
+         child.gameObject.SetActive(false);
+      }
    }
 
    internal void Respawn()
@@ -195,7 +167,16 @@ public class AppleController : Player
       amDead = false;
       this.GetComponent<Animator>().SetTrigger("Idle");
       this.GetComponent<CapsuleCollider2D>().enabled = true;
+      //Set my children to active
+      foreach (Transform child in transform)
+      {
+         child.gameObject.SetActive(true);
+      }
    }
 
-
+   public void SetAte(int ate)
+   {
+      this.ate = ate;
+      GameObject.Find("Player " + this.player + " Stomach").GetComponent<StomachController>().setStomach(ate);
+   }
 }

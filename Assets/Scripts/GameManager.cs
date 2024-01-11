@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private AppleController appleController;
     private GameObject strawberry;
     public float timer = 0;
-    public float matchTime = 60*3; //3 minutes
+    
     private TMP_Text timerText;
     public Slider appleSlider;
     public bool hasStarted = false;
@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
     private int[] score = new int[2];
     private int round = 0;
     private TMP_Text[] scoreDisplay;
+
+    //Round Settings
+    public float matchTime = 3; //3 minutes
+    public int[] chosenApple = new int[2];
+    public int fruitCount = 3;
     void Start()
     {
         Debug.Log("Awake");
@@ -54,9 +59,11 @@ public class GameManager : MonoBehaviour
         strawberry = GameObject.Find("Strawberry");
         appleSlider = GameObject.Find("Player "+apple.GetComponent<AppleController>().player+" Headshot").GetComponent<Slider>();
 
-        timerText.text = "3:00";
-        timer = matchTime;
-        
+        timer = matchTime*60f;
+        int minutes = (int) (timer / 60);
+        int seconds = (int) (timer % 60);
+        timerText.text = minutes + ":" + seconds.ToString("00");
+
         appleSlider.maxValue = appleRespawnTime;
         scoreDisplay = GameObject.Find("Score Display").GetComponentsInChildren<TMP_Text>();
         //Change round
@@ -68,6 +75,9 @@ public class GameManager : MonoBehaviour
         }
         appleController.SetHeadshotSprite("Apple Headshot");
         snakeMovement.SetHeadshotSprite("Snake Headshot");
+        apple.GetComponent<AppleAbbilityController>().type = chosenApple[appleController.player];
+
+        
     }
 
   
@@ -169,7 +179,7 @@ public class GameManager : MonoBehaviour
         Destroy(GameObject.Find("Ready"));
         snakeMovement.enabled = true;   
         //spawn 3 strawberries in the grid except on the snake 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < fruitCount; i++)
         {
             SpawnStrawberry();
         }
@@ -188,6 +198,13 @@ public class GameManager : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene("Snake");
         //get call back when scene is loaded
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public void LoadRoundMenu()
+    {
+        inMenu = true;
+        SceneManager.LoadScene("RoundMenu");
+       
     }
 
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+
 public class PointerMinigame : MonoBehaviour
 {
     public GameObject pointer; // pointer goes back and forth horizontally
@@ -50,7 +50,7 @@ public class PointerMinigame : MonoBehaviour
                 Debug.Log("You lose!");
                 //change win animation text to Nice Try and change color to red
                 try {
-                    snakeMovement.DestroyBodyPart();
+                    snakeMovement.DestroyBodyPart(true);
                 }
                 catch
                 {

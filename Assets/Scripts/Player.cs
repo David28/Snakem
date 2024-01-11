@@ -20,12 +20,7 @@ public class Player : MonoBehaviour
             return new Vector2(Input.GetAxisRaw("Horizontal2"), Input.GetAxisRaw("Vertical2"));
     }
 
-    public bool GetApplePower() {
-        if (player == 0)
-            return Input.GetKeyDown(KeyCode.K);
-        else
-            return Input.GetKeyDown(KeyCode.Q);
-    }
+    
     public Vector2 GetSnakeInput() {
         if (player == 0){
             if (Input.GetKeyDown(KeyCode.W)) {
@@ -56,16 +51,21 @@ public class Player : MonoBehaviour
         if (player == 1)
             return Input.GetKeyDown(KeyCode.L);
         else
-            return Input.GetKeyDown(KeyCode.E);
+            return Input.GetKeyDown(KeyCode.B);
     }
 
     public bool GetSnakeAction() {
         if (player == 0)
-            return Input.GetKeyDown(KeyCode.E);
+            return Input.GetKeyDown(KeyCode.B);
         else
             return Input.GetKeyDown(KeyCode.L);
     }
-
+    public bool GetApplePower() {
+        if (player == 0)
+            return Input.GetKeyDown(KeyCode.V);
+        else
+            return Input.GetKeyDown(KeyCode.K);
+    }
     public void SetHeadshotSprite(string spriteName) {
         Debug.Log("Player "+player+" Headshot");
         Debug.Log(GameObject.Find("Player "+player+" Headshot"));
