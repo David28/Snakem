@@ -74,7 +74,10 @@ public class GameManager : MonoBehaviour
             appleController.ChangePlayer();
         }
         appleController.SetHeadshotSprite("Apple Headshot");
+        appleController.SetMunchSound("Apple Munch");
         snakeMovement.SetHeadshotSprite("Snake Headshot");
+        snakeMovement.SetMunchSound("Snake Munch");
+
         apple.GetComponent<AppleAbbilityController>().type = chosenApple[appleController.player];
 
         
@@ -153,6 +156,11 @@ public class GameManager : MonoBehaviour
                 possiblePositions.Remove(strawberries[i].transform.position);
             }
         }
+        
+        if (possiblePositions.Count == 0)
+        {
+            return;
+        }
 
         int randomIndex = UnityEngine.Random.Range(0, possiblePositions.Count);
         Vector2 randomPosition = possiblePositions[randomIndex];
@@ -211,8 +219,10 @@ public class GameManager : MonoBehaviour
     {
         
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        if (inMenu && scene.name == "Snake")
+        if (inMenu && scene.name == "Snake"){
             inMenu = false;
+            GetComponent<AudioSource>().Stop();
+        }
         Start();
     }
 

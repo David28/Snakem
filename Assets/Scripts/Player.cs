@@ -67,9 +67,10 @@ public class Player : MonoBehaviour
             return Input.GetKeyDown(KeyCode.K);
     }
     public void SetHeadshotSprite(string spriteName) {
-        Debug.Log("Player "+player+" Headshot");
-        Debug.Log(GameObject.Find("Player "+player+" Headshot"));
-        Debug.Log(Resources.Load<Sprite>("Sprites/"+spriteName));
         GameObject.Find("Player "+player+" Headshot").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/"+spriteName);
+    }
+
+    public void SetMunchSound(string soundName) {
+        GameObject.Find("Player "+player+" Stomach").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("Sounds/"+soundName);
     }
 }

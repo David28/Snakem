@@ -298,6 +298,7 @@ public class SnakeMovement : Player
         if (collision.gameObject.name == "Apples" && stunTimer == -1.0f)
         {
             ate+=3;
+            GameObject.Find("Player "+this.player +" Stomach").GetComponent<StomachController>().setStomach(Mathf.Min(ate,3));
             GameObject.FindObjectOfType<GameManager>().SetAppleRespawnTimer();
             collision.gameObject.GetComponent<AppleController>().Kill();
         }
