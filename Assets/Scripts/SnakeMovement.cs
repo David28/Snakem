@@ -102,7 +102,7 @@ public class SnakeMovement : Player
 
         //make position round to nearest 0.5
         transform.position = new Vector3(Mathf.Round(transform.position.x*2)/2, Mathf.Round(transform.position.y*2)/2, 0);
-        tryEat();
+        bool justAte = tryEat();
         if (ate >= 3) {
             GameObject lastBodyPart = bodyParts[bodyParts.Count-2].gameObject;
             GameObject tail = bodyParts[bodyParts.Count-1].gameObject;
@@ -126,6 +126,8 @@ public class SnakeMovement : Player
         
         direction = newDirection;
         SetNextDirection(direction);
+
+        if (justAte) GameObject.Find("GameManager").GetComponent<GameManager>().SpawnStrawberry(); //have to do it after the snake moves
     }
 
     private bool CheckColisions(Vector3 nextPos)
@@ -241,7 +243,7 @@ public class SnakeMovement : Player
         this.GetComponent<Animator>().SetBool("Side Stunned", true);
     }
 
-    private void tryEat()
+    private bool tryEat()
     {
         GameObject[] strawberries = GameObject.FindGameObjectsWithTag("Strawberry");
         for (int i = 0; i < strawberries.Length; i++)
@@ -249,11 +251,13 @@ public class SnakeMovement : Player
             if (strawberries[i].transform.position == transform.position)
             {
                 Destroy(strawberries[i]);
-                GameObject.Find("GameManager").GetComponent<GameManager>().SpawnStrawberry();
+                
                 ate++;
                 GameObject.Find("Player "+this.player +" Stomach").GetComponent<StomachController>().setStomach(ate);
+                return true;
             }
         }
+        return false;
     }
 
     private void getValidKey()
@@ -295,21 +299,6 @@ public class SnakeMovement : Player
         Destroy(obj, stunTime);
     }
 
-    internal bool isFreePosition(Vector3 spawnPos)
-    {
-        if (spawnPos == transform.position)
-        {
-            return false;
-        }
-        for (int i = 0; i < bodyParts.Count; i++)
-        {
-            if (spawnPos == bodyParts[i].gameObject.transform.position)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {

@@ -28,7 +28,9 @@ public class AppleController : Player
 
    void Update()
    {
+      Animator animator = this.GetComponent<Animator>();
       
+      animator.SetBool("Dead", amDead);
 
       // Gives a value between -1 and 1
       input = GetAppleInput();
@@ -37,7 +39,6 @@ public class AppleController : Player
       
       if (amDead)
       {
-         WrapAround();
          return;
       }
       if (GetAppleAction())
@@ -62,48 +63,20 @@ public class AppleController : Player
 
       }
 
-      if (horizontal == 0 && vertical == 0)
-      {
-         if (currentState != 0 && amDead == false)
-         {
-            this.GetComponent<Animator>().SetTrigger("Idle");
-            Debug.Log("Idle");
-            currentState = 0;
-         }
-
-      }
-      else
+      if (horizontal != 0 || vertical != 0)
       {
          shootDirection = new Vector2(horizontal, vertical);
-         if (horizontal != 0 && vertical == 0)
-         {
-            if (currentState != 2)
-            {
-               this.GetComponent<Animator>().SetTrigger("Horizontal");
-               currentState = 2;
-            }
-
-         }
-         else if (currentState != 1 && vertical > 0)
-         {
-               this.GetComponent<Animator>().SetTrigger("Vertical Back");
-            currentState = 1;
-         }else if (currentState != 3 && vertical < 0)
-         {
-            Debug.Log("Vertical Front");
-               this.GetComponent<Animator>().SetTrigger("Vertical Front");
-            currentState = 3;
-         }
+         
       }
-
-
+      animator.SetBool("Horizontal", horizontal != 0);
+      animator.SetBool("Vertical", vertical != 0);
+      animator.SetBool("Front", vertical < 0);
 
    }
 
 
 
    public GameObject spitPrefab;
-   private int currentState = 0;
    void spit()
    {
       if (ate == 0)
@@ -129,7 +102,7 @@ public class AppleController : Player
       }
 
       body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
-
+      if (amDead) WrapAround();
    }
 
    
@@ -154,7 +127,6 @@ public class AppleController : Player
    internal void Kill()
    {
       if (amDead) return;
-      this.GetComponent<Animator>().SetTrigger("Dead");
       this.transform.position = new Vector3();
       this.GetComponent<CapsuleCollider2D>().enabled = false;
       amDead = true;
@@ -168,7 +140,7 @@ public class AppleController : Player
    internal void Respawn()
    {
       amDead = false;
-      this.GetComponent<Animator>().SetTrigger("Idle");
+      this.GetComponent<Animator>().SetBool("Dead", false);
       this.GetComponent<CapsuleCollider2D>().enabled = true;
       //Set my children to active
       foreach (Transform child in transform)
@@ -191,15 +163,15 @@ public class AppleController : Player
          float yBound = 5.5f;
          if (curPos.x >= xBound - offset) {
 
-            curPos.x = -xBound;
+            curPos.x = -xBound + offset;
          } else if (curPos.x <= -xBound + offset) {
-            curPos.x = xBound;
+            curPos.x = xBound - offset;
          }
 
          if (curPos.y >= yBound - offset) {
-            curPos.y = -yBound;
+            curPos.y = -yBound + offset;
          } else if (curPos.y <= -yBound + offset) {
-            curPos.y = yBound;
+            curPos.y =     yBound - offset;
          }
          transform.position = curPos;
    }

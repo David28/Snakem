@@ -23,7 +23,7 @@ public class AppleAbbilityController : MonoBehaviour
     {
         Vector3 direction = player.shootDirection;
         Vector3 spawnPosition = transform.position + direction;
-        if (type == 1)
+        if (type == 1 && player.GetApplePowerDown())
         {
             spawnPosition.x = Mathf.Floor(spawnPosition.x)+0.5f;
             spawnPosition.y = Mathf.Floor(spawnPosition.y)+0.5f;
@@ -38,7 +38,7 @@ public class AppleAbbilityController : MonoBehaviour
         {
             return;
         }
-        if (player.GetApplePower()){
+        if (player.GetApplePowerRelease()){
           if (type == 1){
                 Build();
             }else{
@@ -51,8 +51,11 @@ public class AppleAbbilityController : MonoBehaviour
    {
       if (player.ate < 3) return;
       player.SetAte(0);
-
-      Instantiate(obstaclePrefab, pointPrefab.transform.position, Quaternion.identity).SetActive(true);
+      Vector3 direction = player.shootDirection;
+        Vector3 spawnPosition = transform.position + direction;
+    spawnPosition.x = Mathf.Floor(spawnPosition.x)+0.5f;
+        spawnPosition.y = Mathf.Floor(spawnPosition.y)+0.5f;
+      Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity).SetActive(true);
       
 
    }

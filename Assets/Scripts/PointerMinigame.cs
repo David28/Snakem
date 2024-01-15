@@ -38,6 +38,8 @@ public class PointerMinigame : MonoBehaviour
                 Debug.Log("You win!");
                 try {
                     snakeMovement.endStun();
+                 this.GetComponent<Animator>().SetTrigger("Win");
+
                 }
                 catch
                 {
@@ -57,9 +59,8 @@ public class PointerMinigame : MonoBehaviour
                     Debug.Log("Snake not found");
                 }
             }
-           target.GetComponent<SpriteRenderer>().enabled = false;
-            pointer.GetComponent<SpriteRenderer>().enabled = false;
-            area.GetComponent<Animator>().enabled = true;
+                Destroy(this.gameObject);
+
         }
 
     }

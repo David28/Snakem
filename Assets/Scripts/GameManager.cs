@@ -63,14 +63,12 @@ public class GameManager : MonoBehaviour
         
         timerText = GameObject.Find("Timer").GetComponent<TMP_Text>();
         strawberry = GameObject.Find("Strawberry");
-        appleSlider = GameObject.Find("Player "+apple.GetComponent<AppleController>().player+" Headshot").GetComponent<Slider>();
 
         timer = matchTime*60f;
         int minutes = (int) (timer / 60);
         int seconds = (int) (timer % 60);
         timerText.text = minutes + ":" + seconds.ToString("00");
 
-        appleSlider.maxValue = appleRespawnTime;
         scoreDisplay = GameObject.Find("Score Display").GetComponentsInChildren<TMP_Text>();
         //Change round
         scoreDisplay[0].text = "Round " + round;
@@ -84,9 +82,11 @@ public class GameManager : MonoBehaviour
         snakeMovement.SetHeadshotSprite("Snake Headshot");
         snakeMovement.SetMunchSound("Snake Munch");
 
+        appleSlider = GameObject.Find("Player "+appleController.player+" Headshot").GetComponent<Slider>();
         apple.GetComponent<AppleAbbilityController>().type = chosenApple[appleController.player];
 
-        
+        appleSlider.maxValue = appleRespawnTime;
+        appleRespawnTimer = 0;
     }
 
   
@@ -142,19 +142,20 @@ public class GameManager : MonoBehaviour
     {
         //create all possible positions
         List<Vector3> possiblePositions = new List<Vector3>();
+        GameObject[] snakeBodyParts = GameObject.FindObjectsOfType<BodyPartMovement>().Select(bodyPart => bodyPart.gameObject).ToArray();
+        GameObject[] head = {snake};
         GameObject[] environmentObstacles = GameObject.FindGameObjectsWithTag("Environment Obstacle");
         GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        obstacles = obstacles.Concat(environmentObstacles).ToArray();
+        obstacles = obstacles.Concat(environmentObstacles).Concat(head).Concat(snakeBodyParts).ToArray(); //i hate this
+        
         for (float x = -mapSize.x / 2 + 0.5f; x < mapSize.x / 2 +1 - 0.5f; x += 1f)
         {
             for (float y = -mapSize.y / 2 + 0.5f; y < mapSize.y / 2 +1 - 0.5f; y += 1f)
             {
-                if (!snakeMovement.isFreePosition(new Vector3(x, y, 0f)) || obstacles.Any(obstacle => obstacle.transform.position == new Vector3(x, y, 0f)))
+                if (obstacles.Any(obstacle => obstacle.transform.position == new Vector3(x, y, 0f)))
                 {
                     continue;
                 }
-                Debug.Log(x + " " + y);
-
                 possiblePositions.Add(new Vector3(x, y,0));
             }
         }
@@ -164,7 +165,7 @@ public class GameManager : MonoBehaviour
         {
             if (strawberries[i] == null)
             {
-                strawberries.RemoveAt(i);
+                strawberries.RemoveAt(i); //concurrency issues
                 i--;
             }
             else

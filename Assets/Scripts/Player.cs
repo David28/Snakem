@@ -60,11 +60,18 @@ public class Player : MonoBehaviour
         else
             return Input.GetKeyDown(KeyCode.L);
     }
-    public bool GetApplePower() {
+    public bool GetApplePowerDown() {
         if (player == 0)
-            return Input.GetKeyDown(KeyCode.V);
+            return Input.GetKey(KeyCode.V);
         else
-            return Input.GetKeyDown(KeyCode.K);
+            return Input.GetKey(KeyCode.K);
+    }
+
+    public bool GetApplePowerRelease() {
+        if (player == 0)
+            return Input.GetKeyUp(KeyCode.V);
+        else
+            return Input.GetKeyUp(KeyCode.K);
     }
     public void SetHeadshotSprite(string spriteName) {
         GameObject.Find("Player "+player+" Headshot").GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/"+spriteName);
