@@ -10,7 +10,7 @@ public class AppleController : Player
    float horizontal;
    float vertical;
    float moveLimiter = 0.7f;
-   public int ate = 0;
+   
    public float runSpeed = 20.0f;
    private SpriteRenderer spriteRenderer;
    void Start()
@@ -28,6 +28,7 @@ public class AppleController : Player
 
    void Update()
    {
+      TickDizzy();
       Animator animator = this.GetComponent<Animator>();
       
       animator.SetBool("Dead", amDead);
@@ -116,10 +117,11 @@ public class AppleController : Player
       {
          Destroy(other.gameObject);
          GameObject.Find("GameManager").GetComponent<GameManager>().SpawnStrawberry();
-
+         SetDizzy(other.gameObject.GetComponent<RandomSprite>().isMutaded);
          if (ate >= 3) return;
 
-         SetAte(ate + 1);
+
+         SetAte(ate + (other.gameObject.GetComponent<RandomSprite>().isMutaded ? 2 : 1));
       }
 
    }
@@ -147,14 +149,10 @@ public class AppleController : Player
       {
          child.gameObject.SetActive(true);
       }
+      SetDizzy(false);
    }
 
-   public void SetAte(int ate)
-   {
-      this.ate = ate;
-      GameObject.Find("Player " + this.player + " Stomach").GetComponent<StomachController>().setStomach(ate);
-   }
-
+  
    private void WrapAround(){
       //wrap around
          Vector3 curPos = transform.position;

@@ -23,7 +23,6 @@ public class SnakeMovement : Player
     //keep track of last key pressed
     private Vector3 newDirection = Vector3.up;
     public List<BodyPartMovement> bodyParts = new List<BodyPartMovement>();
-    public int ate = 0;
     public Vector3 direction;
 
     public float stunTimer = 0.0f;
@@ -39,6 +38,7 @@ public class SnakeMovement : Player
     // Update is called once per frame
     void Update()
     {
+        TickDizzy();
         getValidKey();
         if (stunTimer > 0.0f)
         {
@@ -51,8 +51,7 @@ public class SnakeMovement : Player
         {
             //spend 1 strawberry to get a boost
             if (ate > 0){
-                ate--;
-                GameObject.Find("Player "+this.player +" Stomach").GetComponent<StomachController>().setStomach(ate);
+                SetAte(ate-1);
                 if (boost == 0)
                     this.GetComponent<Animator>().SetBool("Boosting", true);
                 boost = boostValue;
@@ -112,8 +111,7 @@ public class SnakeMovement : Player
             bodyParts.Insert(bodyParts.Count-1, g.gameObject.GetComponent<BodyPartMovement>());
             g.gameObject.GetComponent<BodyPartMovement>().Start();
             g.gameObject.GetComponent<BodyPartMovement>().direction = tail.GetComponent<BodyPartMovement>().direction;
-            ate -= 3;
-            GameObject.Find("Player "+this.player +" Stomach").GetComponent<StomachController>().setStomach(Mathf.Min(ate,3));
+            SetAte(ate-3);
 
             GameObject.FindObjectOfType<GameManager>().AddPoint(this.player);
         }
@@ -251,9 +249,8 @@ public class SnakeMovement : Player
             if (strawberries[i].transform.position == transform.position)
             {
                 Destroy(strawberries[i]);
-                
-                ate++;
-                GameObject.Find("Player "+this.player +" Stomach").GetComponent<StomachController>().setStomach(ate);
+                SetAte(ate + (strawberries[i].gameObject.GetComponent<RandomSprite>().isMutaded ? 2 : 1));
+                SetDizzy(strawberries[i].gameObject.GetComponent<RandomSprite>().isMutaded);
                 return true;
             }
         }
@@ -304,8 +301,7 @@ public class SnakeMovement : Player
     {
         if (collision.gameObject.name == "Apples" && stunTimer == -1.0f)
         {
-            ate+=3;
-            GameObject.Find("Player "+this.player +" Stomach").GetComponent<StomachController>().setStomach(Mathf.Min(ate,3));
+            SetAte(ate+3);
             GameObject.FindObjectOfType<GameManager>().SetAppleRespawnTimer();
             collision.gameObject.GetComponent<AppleController>().Kill();
         }

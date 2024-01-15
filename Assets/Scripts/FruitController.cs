@@ -5,7 +5,11 @@ using UnityEngine;
 public class RandomSprite : MonoBehaviour
 {
     public Sprite[] sprites;
+    
     public Color[] colors;
+
+    public bool isMutaded = false; //mutaded fruit moves around and tries to go away from the the apple and snake
+    public float mutationProbability = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,15 @@ public class RandomSprite : MonoBehaviour
                 this.GetComponent<CapsuleCollider2D>().enabled = false;
             }
         }
-    }
+        if (Random.Range(0.0f, 1.0f) < mutationProbability)
+        {
+            isMutaded = true;
+        }
+        if (isMutaded)
+        {
+            this.GetComponent<ParticleSystem>().Play();
 
+        }
+    }
+    
 }
