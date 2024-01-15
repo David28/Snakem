@@ -5,10 +5,18 @@ using UnityEngine;
 public class RandomSprite : MonoBehaviour
 {
     public Sprite[] sprites;
+    public Color[] colors;
     // Start is called before the first frame update
     void Start()
     {
-        int index = Random.Range(0, sprites.Length);
+        int index = Random.Range(0, colors.Length);
+
+        if (sprites.Length == 0)
+            {
+                GetComponent<SpriteRenderer>().color = colors[index];
+                return;
+            }
+        index = Random.Range(0, sprites.Length);
         GetComponent<SpriteRenderer>().sprite = sprites[index];
 
         GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");

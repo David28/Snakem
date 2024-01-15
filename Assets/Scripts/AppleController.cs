@@ -28,6 +28,7 @@ public class AppleController : Player
 
    void Update()
    {
+      
 
       // Gives a value between -1 and 1
       input = GetAppleInput();
@@ -36,6 +37,7 @@ public class AppleController : Player
       
       if (amDead)
       {
+         WrapAround();
          return;
       }
       if (GetAppleAction())
@@ -62,9 +64,10 @@ public class AppleController : Player
 
       if (horizontal == 0 && vertical == 0)
       {
-         if (currentState != 0)
+         if (currentState != 0 && amDead == false)
          {
             this.GetComponent<Animator>().SetTrigger("Idle");
+            Debug.Log("Idle");
             currentState = 0;
          }
 
@@ -178,5 +181,26 @@ public class AppleController : Player
    {
       this.ate = ate;
       GameObject.Find("Player " + this.player + " Stomach").GetComponent<StomachController>().setStomach(ate);
+   }
+
+   private void WrapAround(){
+      //wrap around
+         Vector3 curPos = transform.position;
+         float xBound = 5.5f;
+         float offset = 0.5f;
+         float yBound = 5.5f;
+         if (curPos.x >= xBound - offset) {
+
+            curPos.x = -xBound;
+         } else if (curPos.x <= -xBound + offset) {
+            curPos.x = xBound;
+         }
+
+         if (curPos.y >= yBound - offset) {
+            curPos.y = -yBound;
+         } else if (curPos.y <= -yBound + offset) {
+            curPos.y = yBound;
+         }
+         transform.position = curPos;
    }
 }

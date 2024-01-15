@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 public class GameManager : MonoBehaviour
 {
     public Vector2 mapSize = new Vector2(10, 10);
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
     public float matchTime = 3; //3 minutes
     public int[] chosenApple = new int[2];
     public int fruitCount = 3;
+
+    public int level = 0;
     void Start()
     {
         Debug.Log("Awake");
@@ -40,8 +43,11 @@ public class GameManager : MonoBehaviour
                     GameObject.Find("Win").GetComponent<TMP_Text>().text = "It's a tie!";
                     Destroy(GameObject.Find("Confetti"));
                 }
-                else
+                else{
                     GameObject.Find("Win").GetComponent<TMP_Text>().text = "Player " + ((score[0]>score[1])?"1":"2") + " Wins!";
+                    GameObject.Find("Win").GetComponent<AudioSource>().Play();
+
+                }
 
                 Destroy(this.gameObject);
             }
@@ -68,7 +74,7 @@ public class GameManager : MonoBehaviour
         scoreDisplay = GameObject.Find("Score Display").GetComponentsInChildren<TMP_Text>();
         //Change round
         scoreDisplay[0].text = "Round " + round;
-        scoreDisplay[1].text = "Score: \nPlayer 1:  " + score[0] + "\nPlayer 2:  "+ ((round==1)?"--":score[1]);
+        scoreDisplay[1].text = "Score: \nPlayer 1:  " + ((round==1)?"--":score[0]) + "\nPlayer 2:  "+ score[1];
         if (round > 1) {
             snakeMovement.ChangePlayer();
             appleController.ChangePlayer();
@@ -90,6 +96,11 @@ public class GameManager : MonoBehaviour
     {
         if (inMenu)
             return;
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SpawnStrawberry();
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //test new Round
@@ -130,16 +141,21 @@ public class GameManager : MonoBehaviour
     public void SpawnStrawberry()
     {
         //create all possible positions
-        List<Vector2> possiblePositions = new List<Vector2>();
-        for (float x = -mapSize.x / 2 + 0.5f; x < mapSize.x / 2 - 0.5f; x += 1f)
+        List<Vector3> possiblePositions = new List<Vector3>();
+        GameObject[] environmentObstacles = GameObject.FindGameObjectsWithTag("Environment Obstacle");
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        obstacles = obstacles.Concat(environmentObstacles).ToArray();
+        for (float x = -mapSize.x / 2 + 0.5f; x < mapSize.x / 2 +1 - 0.5f; x += 1f)
         {
-            for (float y = -mapSize.y / 2 + 0.5f; y < mapSize.y / 2 - 0.5f; y += 1f)
+            for (float y = -mapSize.y / 2 + 0.5f; y < mapSize.y / 2 +1 - 0.5f; y += 1f)
             {
-                if (!snakeMovement.isFreePosition(new Vector3(x, y, 0f)))
+                if (!snakeMovement.isFreePosition(new Vector3(x, y, 0f)) || obstacles.Any(obstacle => obstacle.transform.position == new Vector3(x, y, 0f)))
                 {
                     continue;
                 }
-                possiblePositions.Add(new Vector2(x, y));
+                Debug.Log(x + " " + y);
+
+                possiblePositions.Add(new Vector3(x, y,0));
             }
         }
 
@@ -156,7 +172,7 @@ public class GameManager : MonoBehaviour
                 possiblePositions.Remove(strawberries[i].transform.position);
             }
         }
-        
+   
         if (possiblePositions.Count == 0)
         {
             return;
@@ -203,7 +219,7 @@ public class GameManager : MonoBehaviour
             inMenu = true;
             SceneManager.LoadScene("WinScene");
         }else
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Snake");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Snake " + level);
         //get call back when scene is loaded
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -219,7 +235,7 @@ public class GameManager : MonoBehaviour
     {
         
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        if (inMenu && scene.name == "Snake"){
+        if (inMenu && scene.name == "Snake " + level){
             inMenu = false;
             GetComponent<AudioSource>().Stop();
         }
@@ -229,13 +245,13 @@ public class GameManager : MonoBehaviour
     internal void RemovePoint(int player)
     {
         score[player]--;
-        scoreDisplay[1].text = "Score: \nPlayer 1:  " + score[0] + "\nPlayer 2:  "+ ((round==1)?"--":score[1]);
+        scoreDisplay[1].text = "Score: \nPlayer 1:  " + ((round==1)?"--":score[0]) + "\nPlayer 2:  "+ score[1];
     }
 
     internal void AddPoint(int player)
     {
         score[player]++;
-        scoreDisplay[1].text = "Score: \nPlayer 1:  " + score[0] + "\nPlayer 2:  "+ ((round==1)?"--":score[1]);
+        scoreDisplay[1].text = "Score: \nPlayer 1:  " + ((round==1)?"--":score[0]) + "\nPlayer 2:  "+ score[1];
         if (score[player] >= mapSize.x * mapSize.y - 3)
         {
             LoadGame();

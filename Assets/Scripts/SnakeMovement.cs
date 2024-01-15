@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class SnakeMovement : Player
 {
+    private GameObject[] environmentObstacles;
     void Start() 
     {
+        environmentObstacles = GameObject.FindGameObjectsWithTag("Environment Obstacle");
         //set all rotations to 0
         transform.rotation = Quaternion.Euler(0, 0, 0);
         for (int i = 0; i < bodyParts.Count; i++)
@@ -54,7 +56,7 @@ public class SnakeMovement : Player
                 if (boost == 0)
                     this.GetComponent<Animator>().SetBool("Boosting", true);
                 boost = boostValue;
-                
+                GetComponent<AudioSource>().Play();
             }
         }
 
@@ -79,7 +81,17 @@ public class SnakeMovement : Player
         
         //check if head is gonna hit a body part or the wall
         Vector3 nextPos = transform.position + newDirection;
-        if (CheckColisions(nextPos)) return;
+        if (CheckColisions(nextPos)){
+            while (CheckIfStuck()) {
+                DestroyBodyPart(true);
+                nextPos = transform.position + newDirection;
+            }
+            //hit the wall
+            Debug.Log("Hit the wall");
+            startMiniGame();
+            fixRotationFromSideImpact(transform.position, nextPos);
+            return;
+        }
 
         Vector2 oldHeadPos = transform.position;
         Vector2 oldDirection = newDirection;
@@ -121,10 +133,6 @@ public class SnakeMovement : Player
         
         if (nextPos.x >= 5.5 || nextPos.x <= -5.5 || nextPos.y >= 5.5 || nextPos.y <= -5.5)
         {
-            //hit the wall
-            Debug.Log("Hit the wall");
-            startMiniGame();
-            fixRotationFromSideImpact(transform.position, nextPos);
             return true;
         }
         else
@@ -133,10 +141,6 @@ public class SnakeMovement : Player
             {
                 if (nextPos == bodyParts[i].transform.position)
                 {
-                    //hit a body part
-                    Debug.Log("Hit a body part");
-                    fixRotationFromSideImpact(transform.position, bodyParts[i].transform.position);
-                    startMiniGame();
                     return true;
                 }
             }
@@ -153,15 +157,29 @@ public class SnakeMovement : Player
                         DestroyObstacle(obstacles[i]);
                         return false;
                     }
-                    Debug.Log("Hit an obstacle");
-                    fixRotationFromSideImpact(transform.position, obstacles[i].transform.position);
-                    startMiniGame();
+                    
+                    return true;
+                }
+            }
+
+            //check for environment obstacles
+            obstacles = environmentObstacles;
+            for (int i = 0; i < obstacles.Length; i++)
+            {
+                //need to put obtacle in refence to snake parent
+                if (nextPos == obstacles[i].transform.position)
+                {
+                    
                     return true;
                 }
             }
         }
         return false;
     }
+
+
+
+
     public GameObject rockSmashEffect;
     private void DestroyObstacle(GameObject gameObject)
     {
@@ -339,6 +357,27 @@ public class SnakeMovement : Player
         GameObject.FindObjectOfType<GameManager>().RemovePoint(this.player);
     }
 
+    private bool CheckIfStuck()
+    {
+        List<Vector3> possibleDirections = new List<Vector3> { Vector3.up, Vector3.down, Vector3.left, Vector3.right };
+        
+        int count = 0;
+        foreach (Vector3 dir in possibleDirections)
+        {
+            Vector3 nextPos = transform.position + dir;
+            if (CheckColisions(nextPos))
+            {
+                count++;
+            }
+        }
+
+        if (count == possibleDirections.Count)
+        {
+            //stuck
+            return true;
+        }
+        return false;
+    }
     public GameObject NextDirectionSprite;
     private void SetNextDirection(Vector3 newDirection)
     {

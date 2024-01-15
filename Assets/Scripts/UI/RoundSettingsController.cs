@@ -33,6 +33,11 @@ public class RoundSettingsController : MonoBehaviour
         gameManager.chosenApple[1] = value;
     }
 
+    public void SetLevel(int value)
+    {
+        gameManager.level = value;
+    }
+
     public void StartGame()
     {
         gameManager.LoadGame();

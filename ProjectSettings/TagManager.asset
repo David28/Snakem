@@ -8,6 +8,7 @@ TagManager:
   - Snake
   - Apple
   - Obstacle
+  - Environment Obstacle
   layers:
   - Default
   - TransparentFX
