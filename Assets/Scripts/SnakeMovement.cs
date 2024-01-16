@@ -280,10 +280,11 @@ public class SnakeMovement : Player
         
     }
 
-    public GameObject stunEffect;
+    public ParticleSystem stunEffect;
     public void startMiniGame()
     {
-        stunEffect.SetActive(true);
+        stunEffect.transform.position = transform.position + newDirection/2f;
+        stunEffect.Play();
 
         if (stunTimer > 0.0f)
             return;

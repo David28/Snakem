@@ -117,8 +117,9 @@ public class GameManager : MonoBehaviour
         if (timer <= 0)
         {
             timer = 0;
-            if (round < 2)
+            if (round <= 2)
                 LoadGame();
+                
                 
         }
         
@@ -221,6 +222,8 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("WinScene");
         }else
             UnityEngine.SceneManagement.SceneManager.LoadScene("Snake " + level);
+
+            
         //get call back when scene is loaded
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -259,5 +262,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    
+    
 }

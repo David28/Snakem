@@ -28,7 +28,7 @@ public class PointerMinigame : MonoBehaviour
         //move pointer back and forth
         
         
-        if (snakeMovement.GetSnakeAction())
+        if (snakeMovement.GetSnakeMini())
         {
             
             //check if pointer is within target

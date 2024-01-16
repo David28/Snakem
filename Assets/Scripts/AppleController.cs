@@ -43,7 +43,7 @@ public class AppleController : Player
       animator.SetBool("Dead", amDead);
 
       // Gives a value between -1 and 1
-      input = GetAppleInput();
+      input = GetAppleInput(amDead);
       horizontal = input.x;
       vertical = input.y;
       

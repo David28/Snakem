@@ -1,0 +1,19 @@
+Audio:
+    * Pixabay
+    * Music:
+        - Main Music In the game:
+            Author: Abstraction
+            Authors' Links: http://abstractionmusic.bandcamp.com/
+            Itch.Io origin: https://tallbeard.itch.io/music-loop-bundle
+
+TileSets:
+    - https://opengameart.org/content/lpc-forest-tiles
+    - https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack
+
+Other sprites:
+    - Fruits: https://dantepixels.itch.io/small-fruits-asset-16x16
+    - Slash: https://sagak-art-pururu.itch.io/small-slash-fx
+    - Vase: https://cainos.itch.io/pixel-art-top-down-basic
+
+Font:
+    - https://tinyworlds.itch.io/free-pixel-font-thaleah

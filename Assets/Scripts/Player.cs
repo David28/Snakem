@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public Vector2 GetAppleInput()
+    public Vector2 GetAppleInput(bool isDead = false)
     {
         Vector2 input = new Vector2(0, 0);
         if (player == 0)
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         else
             input = new Vector2(Input.GetAxisRaw("Horizontal2"), Input.GetAxisRaw("Vertical2"));
 
-        if (dizzyTimer > 0.0f)
+        if (dizzyTimer > 0.0f && !isDead)
             input *= -1;
         return input;
     }
@@ -97,6 +97,14 @@ public class Player : MonoBehaviour
                 return Input.GetKeyDown(KeyCode.B);
             else
                 return Input.GetKeyDown(KeyCode.L);
+        }
+
+         public bool GetSnakeMini()
+        {
+            if (player == 0)
+                return Input.GetKeyDown(KeyCode.V);
+            else
+                return Input.GetKeyDown(KeyCode.K);
         }
         public bool GetApplePowerDown()
         {

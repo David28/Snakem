@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 85637743}
   - component: {fileID: 85637744}
   m_Layer: 5
-  m_Name: Deffensive
+  m_Name: Defensive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Deffensive
+  m_text: 'Defensive
 
 '
   m_isRightToLeft: 0
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.1
+  m_fontSize: 38.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1801,8 +1801,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 2125391561}
   m_HandleRect: {fileID: 183940607}
   m_Direction: 0
-  m_MinValue: 3
-  m_MaxValue: 15
+  m_MinValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 1
   m_Value: 3
   m_OnValueChanged:
@@ -4201,7 +4201,7 @@ GameObject:
   - component: {fileID: 871196075}
   - component: {fileID: 871196076}
   m_Layer: 5
-  m_Name: Deffensive
+  m_Name: Defensive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4853,7 +4853,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Deffensive
+  m_text: 'Defensive
 
 '
   m_isRightToLeft: 0
