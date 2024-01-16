@@ -5002,4 +5002,4 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0.77912426, a: 1}
   - {r: 1, g: 0.43646848, b: 0, a: 1}
   isMutaded: 0
-  mutationProbability: 0.1
+  mutationProbability: 0.05

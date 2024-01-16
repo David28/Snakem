@@ -45,9 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSize: {x: 10, y: 10}
+  apple: {fileID: 0}
+  snake: {fileID: 0}
   timer: 0
-  matchTime: 180
-  timerText: {fileID: 0}
+  appleSlider: {fileID: 0}
   hasStarted: 0
   inMenu: 1
-  appleRespawnTime: 5
+  matchTime: 180
+  chosenApple: 0000000000000000
+  fruitCount: 3
+  level: 0
+  appleRespawnTimer: 0
+  appleRespawnTime: 3

@@ -947,6 +947,10 @@ PrefabInstance:
       propertyPath: matchTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5408534675871909353, guid: c07993c5347b7a240bc34b1f84806a19, type: 3}
+      propertyPath: appleRespawnTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7061870966406708285, guid: c07993c5347b7a240bc34b1f84806a19, type: 3}
       propertyPath: m_Name
       value: GameManager

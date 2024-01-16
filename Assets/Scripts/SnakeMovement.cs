@@ -301,7 +301,7 @@ public class SnakeMovement : Player
     {
         if (collision.gameObject.name == "Apples" && stunTimer == -1.0f)
         {
-            SetAte(ate+3);
+            SetAte(ate+ 3*(collision.gameObject.GetComponent<AppleController>().boosting ? 2 : 1));
             GameObject.FindObjectOfType<GameManager>().SetAppleRespawnTimer();
             collision.gameObject.GetComponent<AppleController>().Kill();
         }

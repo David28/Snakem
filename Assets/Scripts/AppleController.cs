@@ -22,12 +22,21 @@ public class AppleController : Player
    public Vector2 shootDirection = new Vector2(1, 0);
 
    public bool amDead = false;
-
+   public bool canRespawn = false;
    private Vector2 input;
 
 
    void Update()
    {
+      if (boosting)
+      {
+         boostTimer -= Time.deltaTime;
+         if (boostTimer <= 0.0f || amDead)
+         {
+            boosting = false;
+            this.GetComponent<ParticleSystem>().Stop();
+         }
+      }
       TickDizzy();
       Animator animator = this.GetComponent<Animator>();
       
@@ -40,6 +49,10 @@ public class AppleController : Player
       
       if (amDead)
       {
+         if (canRespawn && GetAppleAction())
+         {
+            Respawn();
+         }
          return;
       }
       if (GetAppleAction())
@@ -101,8 +114,8 @@ public class AppleController : Player
          horizontal *= moveLimiter;
          vertical *= moveLimiter;
       }
-
-      body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+      float speed = (boosting ? boostSpeed : runSpeed);
+      body.velocity = new Vector2(horizontal * speed, vertical * speed);
       if (amDead) WrapAround();
    }
 
@@ -118,15 +131,21 @@ public class AppleController : Player
          Destroy(other.gameObject);
          GameObject.Find("GameManager").GetComponent<GameManager>().SpawnStrawberry();
          SetDizzy(other.gameObject.GetComponent<RandomSprite>().isMutaded);
-         if (ate >= 3) return;
+         int newAte = ate + (other.gameObject.GetComponent<RandomSprite>().isMutaded ? 2 : 1);
 
-
-         SetAte(ate + (other.gameObject.GetComponent<RandomSprite>().isMutaded ? 2 : 1));
+         if (newAte > 3)
+         {
+            Boost();
+            newAte = 3;
+         }
+         SetAte(newAte);
       }
 
    }
 
-   internal void Kill()
+    
+
+    internal void Kill()
    {
       if (amDead) return;
       this.transform.position = new Vector3();
@@ -142,6 +161,7 @@ public class AppleController : Player
    internal void Respawn()
    {
       amDead = false;
+      canRespawn = false;
       this.GetComponent<Animator>().SetBool("Dead", false);
       this.GetComponent<CapsuleCollider2D>().enabled = true;
       //Set my children to active
@@ -172,5 +192,16 @@ public class AppleController : Player
             curPos.y =     yBound - offset;
          }
          transform.position = curPos;
+   }
+   public bool boosting = false;
+   public float boostTime = 1.0f;
+   public float boostTimer = 0.0f;
+   public float boostSpeed = 40.0f;
+   private void Boost()
+   {
+      this.boosting = true;
+      this.boostTimer = boostTime;
+      this.GetComponent<AudioSource>().Play();
+      this.GetComponent<ParticleSystem>().Play();
    }
 }

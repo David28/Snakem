@@ -18,27 +18,14 @@ public class RandomSprite : MonoBehaviour
         if (sprites.Length == 0)
             {
                 GetComponent<SpriteRenderer>().color = colors[index];
-                return;
-            }
-        index = Random.Range(0, sprites.Length);
-        GetComponent<SpriteRenderer>().sprite = sprites[index];
-
-        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        foreach (GameObject obstacle in obstacles)
-        {
-            if (obstacle.transform.position == transform.position)
+            }else
             {
-                //set alpha to 0.8
-                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.8f);
-                this.GetComponent<CapsuleCollider2D>().enabled = false;
+                index = Random.Range(0, sprites.Length);
+                GetComponent<SpriteRenderer>().sprite = sprites[index];
             }
-        }
         if (Random.Range(0.0f, 1.0f) < mutationProbability)
         {
             isMutaded = true;
-        }
-        if (isMutaded)
-        {
             this.GetComponent<ParticleSystem>().Play();
 
         }

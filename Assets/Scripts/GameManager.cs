@@ -87,6 +87,9 @@ public class GameManager : MonoBehaviour
 
         appleSlider.maxValue = appleRespawnTime;
         appleRespawnTimer = 0;
+
+        environmentObstacles = GameObject.FindGameObjectsWithTag("Environment Obstacle").ToList();
+
     }
 
   
@@ -130,7 +133,7 @@ public class GameManager : MonoBehaviour
             appleSlider.value = appleRespawnTimer;
             if (appleRespawnTimer <= 0)
             {
-                SpawnApple();
+                appleController.canRespawn = true;
             }
 
         }
@@ -138,13 +141,13 @@ public class GameManager : MonoBehaviour
 
     }
     private List<GameObject> strawberries = new List<GameObject>();
+    private List<GameObject> environmentObstacles = new List<GameObject>();
     public void SpawnStrawberry()
     {
         //create all possible positions
         List<Vector3> possiblePositions = new List<Vector3>();
         GameObject[] snakeBodyParts = GameObject.FindObjectsOfType<BodyPartMovement>().Select(bodyPart => bodyPart.gameObject).ToArray();
         GameObject[] head = {snake};
-        GameObject[] environmentObstacles = GameObject.FindGameObjectsWithTag("Environment Obstacle");
         GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         obstacles = obstacles.Concat(environmentObstacles).Concat(head).Concat(snakeBodyParts).ToArray(); //i hate this
         
@@ -186,10 +189,7 @@ public class GameManager : MonoBehaviour
     }
 
     public float appleRespawnTimer;
-    public void SpawnApple()
-    {
-        appleController.Respawn();
-    }
+
 
     public float appleRespawnTime = 5f;
     internal void SetAppleRespawnTimer()
@@ -253,7 +253,7 @@ public class GameManager : MonoBehaviour
     {
         score[player]++;
         scoreDisplay[1].text = "Score: \nPlayer 1:  " + ((round==1)?"--":score[0]) + "\nPlayer 2:  "+ score[1];
-        if (score[player] >= mapSize.x * mapSize.y - 3)
+        if (score[player] >= mapSize.x * mapSize.y - 3 - environmentObstacles.Count)
         {
             LoadGame();
         }

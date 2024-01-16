@@ -144,6 +144,7 @@ public class Player : MonoBehaviour
 
         public void SetAte(int ate)
         {
+            
             this.ate = ate;
             GameObject.Find("Player " + this.player + " Stomach").GetComponent<StomachController>().setStomach(ate);
         }
