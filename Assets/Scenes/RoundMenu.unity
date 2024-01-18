@@ -1866,7 +1866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -9.51, y: -13.100006}
+  m_AnchoredPosition: {x: -16.6, y: -78}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &339250652
@@ -1889,7 +1889,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Apple special
+  m_text: 'Apple special/
+
+    Skill Check'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4547c566de85f0b45ab8845b184dd6a7, type: 2}
   m_sharedMaterial: {fileID: -5181988987260214839, guid: 4547c566de85f0b45ab8845b184dd6a7, type: 2}
@@ -2000,7 +2002,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -13.1}
+  m_AnchoredPosition: {x: 0, y: -78}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343402287
@@ -2023,7 +2025,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spit/Boost
+  m_text: 'Spit/
+
+    Boost/
+
+    Respawn'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4547c566de85f0b45ab8845b184dd6a7, type: 2}
   m_sharedMaterial: {fileID: -5181988987260214839, guid: 4547c566de85f0b45ab8845b184dd6a7, type: 2}
@@ -5478,8 +5484,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -13.1}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -78}
+  m_SizeDelta: {x: 210.5, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1310297707
 MonoBehaviour:
@@ -5501,7 +5507,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spit/Boost
+  m_text: 'Spit/
+
+    Boost/
+
+    Respawn'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4547c566de85f0b45ab8845b184dd6a7, type: 2}
   m_sharedMaterial: {fileID: -5181988987260214839, guid: 4547c566de85f0b45ab8845b184dd6a7, type: 2}
@@ -5934,7 +5944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -9.51, y: -13.100006}
+  m_AnchoredPosition: {x: -9.51, y: -78}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1449681093
@@ -5957,7 +5967,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Apple special
+  m_text: 'Apple special/
+
+    SkillCheck'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4547c566de85f0b45ab8845b184dd6a7, type: 2}
   m_sharedMaterial: {fileID: -5181988987260214839, guid: 4547c566de85f0b45ab8845b184dd6a7, type: 2}

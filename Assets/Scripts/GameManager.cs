@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public int level = 0;
     void Start()
     {
+        Time.timeScale = 1;
         Debug.Log("Awake");
         if (inMenu)
         {
@@ -100,14 +101,14 @@ public class GameManager : MonoBehaviour
         if (inMenu)
             return;
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SpawnStrawberry();
-        }
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //test new Round
-            LoadGame();
+            
+            //switch the pause menu child to active or inactive
+            GameObject child = GameObject.Find("Pause Menu").transform.GetChild(0).gameObject;
+            child.SetActive(!child.activeSelf);
+            Time.timeScale = child.activeSelf ? 0 : 1;
         }
         if (!hasStarted)
         {
@@ -134,6 +135,7 @@ public class GameManager : MonoBehaviour
             appleSlider.value = appleRespawnTimer;
             if (appleRespawnTimer <= 0)
             {
+                //
                 appleController.canRespawn = true;
             }
 
@@ -143,20 +145,25 @@ public class GameManager : MonoBehaviour
     }
     private List<GameObject> strawberries = new List<GameObject>();
     private List<GameObject> environmentObstacles = new List<GameObject>();
+    internal bool IsOccupied(Vector3 position)
+    {
+        GameObject[] snakeBodyParts = GameObject.FindObjectsOfType<BodyPartMovement>().Select(bodyPart => bodyPart.gameObject).ToArray();
+        GameObject[] head = {snake};
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        obstacles = obstacles.Concat(environmentObstacles).Concat(head).Concat(snakeBodyParts).ToArray(); //i dont like this
+        return obstacles.Any(obstacle => obstacle.transform.position == position) || position.x >= 5.5 || position.x <= -5.5 || position.y >= 5.5 || position.y <= -5.5;
+    }
     public void SpawnStrawberry()
     {
         //create all possible positions
         List<Vector3> possiblePositions = new List<Vector3>();
-        GameObject[] snakeBodyParts = GameObject.FindObjectsOfType<BodyPartMovement>().Select(bodyPart => bodyPart.gameObject).ToArray();
-        GameObject[] head = {snake};
-        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        obstacles = obstacles.Concat(environmentObstacles).Concat(head).Concat(snakeBodyParts).ToArray(); //i hate this
+        
         
         for (float x = -mapSize.x / 2 + 0.5f; x < mapSize.x / 2 +1 - 0.5f; x += 1f)
         {
             for (float y = -mapSize.y / 2 + 0.5f; y < mapSize.y / 2 +1 - 0.5f; y += 1f)
             {
-                if (obstacles.Any(obstacle => obstacle.transform.position == new Vector3(x, y, 0f)))
+                if (IsOccupied(new Vector3(x, y,0)))
                 {
                     continue;
                 }

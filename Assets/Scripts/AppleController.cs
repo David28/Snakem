@@ -21,7 +21,7 @@ public class AppleController : Player
 
    public Vector2 shootDirection = new Vector2(1, 0);
 
-   public bool amDead = false;
+   internal bool amDead = false;
    public bool canRespawn = false;
    private Vector2 input;
 
@@ -41,6 +41,7 @@ public class AppleController : Player
       Animator animator = this.GetComponent<Animator>();
       
       animator.SetBool("Dead", amDead);
+      animator.SetBool("Respawnable", canRespawn);
 
       // Gives a value between -1 and 1
       input = GetAppleInput(amDead);
@@ -49,8 +50,9 @@ public class AppleController : Player
       
       if (amDead)
       {
-         if (canRespawn && GetAppleAction())
+         if (GetAppleAction() && canRespawn)
          {
+            Debug.Log("Respawn");
             Respawn();
          }
          return;
@@ -158,11 +160,12 @@ public class AppleController : Player
       }
    }
 
-   internal void Respawn()
+   private void Respawn()
    {
       amDead = false;
       canRespawn = false;
       this.GetComponent<Animator>().SetBool("Dead", false);
+      this.GetComponent<Animator>().SetBool("Respawnable", false);
       this.GetComponent<CapsuleCollider2D>().enabled = true;
       //Set my children to active
       foreach (Transform child in transform)

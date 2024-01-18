@@ -338,8 +338,8 @@ public class SnakeMovement : Player
         Destroy(neck);
         if (stopStun)
             endStun();
-        this.transform.rotation = getRotationFromDirection(direction);
         SetNextDirection(this.newDirection);
+        this.transform.rotation = getRotationFromDirection(direction);
         GameObject.FindObjectOfType<GameManager>().RemovePoint(this.player);
     }
 

@@ -28,6 +28,9 @@ public class RandomSprite : MonoBehaviour
             isMutaded = true;
             this.GetComponent<ParticleSystem>().Play();
 
+        }else
+        {
+            isMutaded = false;
         }
     }
     

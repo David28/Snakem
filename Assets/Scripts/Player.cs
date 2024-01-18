@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public Vector2 GetAppleInput(bool isDead = false)
+    public Vector2 GetAppleInput(bool isDead)
     {
         Vector2 input = new Vector2(0, 0);
         if (player == 0)
