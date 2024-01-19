@@ -334,12 +334,12 @@ public class SnakeMovement : Player
         bodyParts.RemoveAt(0);
         Instantiate(minusAnim, neck.transform.position+new Vector3(0.5f,0f,0f), neck.transform.rotation).SetActive(true);
         this.transform.position = neck.transform.position;
-        Vector2 direction = neck.transform.position - bodyParts[0].transform.position;
+        direction = neck.transform.position - bodyParts[0].transform.position;
         Destroy(neck);
         if (stopStun)
             endStun();
-        SetNextDirection(this.newDirection);
         this.transform.rotation = getRotationFromDirection(direction);
+        SetNextDirection(direction);
         GameObject.FindObjectOfType<GameManager>().RemovePoint(this.player);
     }
 

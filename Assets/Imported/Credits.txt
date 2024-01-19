@@ -14,6 +14,7 @@ Other sprites:
     - Fruits: https://dantepixels.itch.io/small-fruits-asset-16x16
     - Slash: https://sagak-art-pururu.itch.io/small-slash-fx
     - Vase: https://cainos.itch.io/pixel-art-top-down-basic
+    - Menu Image: https://edermunizz.itch.io/free-pixel-art-forest
 
 Font:
     - https://tinyworlds.itch.io/free-pixel-font-thaleah
