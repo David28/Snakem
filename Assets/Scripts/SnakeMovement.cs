@@ -81,10 +81,6 @@ public class SnakeMovement : Player
         //check if head is gonna hit a body part or the wall
         Vector3 nextPos = transform.position + newDirection;
         if (CheckColisions(nextPos)){
-            while (CheckIfStuck()) {
-                DestroyBodyPart(true);
-                nextPos = transform.position + newDirection;
-            }
             //hit the wall
             Debug.Log("Hit the wall");
             startMiniGame();
@@ -153,7 +149,7 @@ public class SnakeMovement : Player
                 if (nextPos == obstacles[i].transform.position)
                 {
                     //hit an obstacle
-                    if (boost > 0.0f){
+                    if (boost > 0.0f || bodyParts.Count <= 2){
                         DestroyObstacle(obstacles[i]);
                         return false;
                     }
